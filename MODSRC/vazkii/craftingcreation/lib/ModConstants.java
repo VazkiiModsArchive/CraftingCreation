@@ -9,6 +9,6 @@ public class ModConstants {
 	public static final String NETWORK_CHANNEL = "CraftCreation";
 	
 	public static final String COMMON_PROXY = "vazkii.craftingcreation.core.CommonProxy",
-							CLIENT_PROXY = "vazkii.creaftingcreation.core.ClientProxy";
+							CLIENT_PROXY = "vazkii.craftingcreation.core.ClientProxy";
 	
 }
