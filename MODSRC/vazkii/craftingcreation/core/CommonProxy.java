@@ -1,6 +1,6 @@
 package vazkii.craftingcreation.core;
 
-import net.minecraft.creativetab.CreativeTabs;
+import vazkii.craftingcreation.block.ModBlocks;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -12,7 +12,11 @@ public class CommonProxy {
 	}
 	
 	public void init(FMLInitializationEvent event) {
+		ModBlocks.initBlocks();
+		//ModItems.initItems();
 		
+		ModBlocks.nameBlocks();
+		//ModItems.nameItems();
 	}
 
 }

@@ -11,9 +11,11 @@ public class ConfigurationHandler {
 					blockIDCreationBricks = 942,
 					blockIDPortal = 943,
 					blockIDKiln = 944,
-					blockIDBeacon = 945,
-					blockIDInvisibleWall = 946,
-					blockIDSmokeyBlock = 947;
+					blockIDAltar = 945,
+					blockIDCreationChest = 946,
+					blockIDBeacon = 947,
+					blockIDInvisibleWall = 948,
+					blockIDSmokeyBlock = 949;
 	
 	public static int itemIDCreationClay = 14320,
 					itemIDCreationClaySword = 14321,

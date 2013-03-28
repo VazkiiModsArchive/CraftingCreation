@@ -19,7 +19,6 @@ public class BlockSmokeyBlock extends BlockCraftingCreation {
 	public BlockSmokeyBlock(int id) {
 		super(id, Material.rock);
 		setBlockUnbreakable();
-		setTickRandomly(true);
 	}
 	
 	@Override
@@ -31,8 +30,8 @@ public class BlockSmokeyBlock extends BlockCraftingCreation {
     public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random) {
     	for (int i = 0; i < 6; ++i) {
     		float x = (float)par2 + par5Random.nextFloat();
-    		float z = (float)par3 + par5Random.nextFloat();
-    		float y = (float)(par4 + 1) - par5Random.nextFloat();
+    		float z = (float)par4 + par5Random.nextFloat();
+    		float y = (float)(par3 + 1) - par5Random.nextFloat();
     		par1World.spawnParticle("largesmoke", (double)x, (double)y, (double)z, 0.0D, 0.0D, 0.0D);
     	}
     }
