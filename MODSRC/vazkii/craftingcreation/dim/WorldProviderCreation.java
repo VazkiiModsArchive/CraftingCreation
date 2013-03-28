@@ -1,14 +1,21 @@
 package vazkii.craftingcreation.dim;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.multiplayer.ChunkProviderClient;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldProviderCreation extends WorldProvider {
 
 	@Override
 	public String getDimensionName() {
 		return "Plane of Creation";
+	}
+	
+	@Override
+	public IChunkProvider createChunkGenerator() {
+		return new ChunkProvideCreation(worldObj);
 	}
 	
 	@Override

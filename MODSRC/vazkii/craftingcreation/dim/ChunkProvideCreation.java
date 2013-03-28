@@ -2,6 +2,8 @@ package vazkii.craftingcreation.dim;
 
 import java.util.List;
 
+import vazkii.craftingcreation.block.ModBlocks;
+
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.world.ChunkPosition;
@@ -24,7 +26,17 @@ public class ChunkProvideCreation implements IChunkProvider {
 
 	@Override
 	public Chunk provideChunk(int i, int j) {
-		return new Chunk(world, i, j);
+		Chunk chunk = new Chunk(world, i, j);
+		generateChunk(chunk);
+		return chunk;
+	}
+	
+	public void generateChunk(Chunk chunk) {
+		for(int y = 0; y < 64; y++) {
+			for(int x = 0; x < 16; x++)
+				for(int z = 0; z < 16; z++)
+					chunk.setBlockIDWithMetadata(x, y, z, ModBlocks.creationClay.blockID, 0);
+		}
 	}
 
 	@Override
