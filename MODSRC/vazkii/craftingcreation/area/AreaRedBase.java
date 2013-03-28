@@ -15,7 +15,7 @@ public class AreaRedBase extends AreaGenerator {
 		super(0);
 	}
 
-	public void generate(World world, int i, int j) {
+	public void generate(World world, int i, int k) {
 		world.setBlockAndMetadataWithNotify(i + 0, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 0, j + 0, k + 1, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 0, j + 0, k + 2, ModBlocks.creationBricks.blockID, 0, 3);

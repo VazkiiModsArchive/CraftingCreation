@@ -12,7 +12,7 @@ public class AreaClayTree extends AreaGenerator {
 		super(15);
 	}
 
-	public void generate(World world, int i, int j) {
+	public void generate(World world, int i, int k) {
 		int clayLevel = world.rand.nextInt(5);
 
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 1, ModBlocks.creationClay.blockID, 0, 3);

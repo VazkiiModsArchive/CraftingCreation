@@ -12,7 +12,7 @@ public class AreaTerrainBoulder extends AreaGenerator {
 		super(3);
 	}
 
-	public void generate(World world, int i, int j) {
+	public void generate(World world, int i, int k) {
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 1, ModBlocks.creationClay.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 2, ModBlocks.creationClay.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 3, ModBlocks.creationClay.blockID, 0, 3);

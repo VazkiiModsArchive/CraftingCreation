@@ -12,10 +12,10 @@ public class AreaSacredKiln extends AreaGenerator {
 	public static final AreaSacredKiln INSTANCE = new AreaSacredKiln();
 	
 	public AreaSacredKiln() {
-		super(8);
+		super(5);
 	}
 
-	public void generate(World world, int i, int j) {
+	public void generate(World world, int i, int k) {
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 2, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 3, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 4, ModBlocks.creationBricks.blockID, 0, 3);

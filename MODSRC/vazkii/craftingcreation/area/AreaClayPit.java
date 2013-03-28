@@ -15,8 +15,8 @@ public class AreaClayPit extends AreaGenerator {
 		super(15);
 	}
 
-	public void generate(World world, int i, int j) {
-		int k = this.k - 6;
+	public void generate(World world, int i, int k) {
+		int j = this.j - 7;
 		int clayLevel = world.rand.nextInt(5);
 		
 		world.setBlockAndMetadataWithNotify(i + 0, j + 5, k + 1, ModBlocks.creationClayBreakable.blockID, clayLevel, 3);

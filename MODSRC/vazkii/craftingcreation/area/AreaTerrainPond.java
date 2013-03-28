@@ -14,7 +14,9 @@ public class AreaTerrainPond extends AreaGenerator {
 		super(3);
 	}
 
-	public void generate(World world, int i, int j) {
+	public void generate(World world, int i, int k) {
+		int j = this.j - 1;
+		
 		world.setBlockAndMetadataWithNotify(i + 0, j + 0, k + 2, Block.waterStill.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 0, j + 0, k + 3, Block.waterStill.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 1, Block.waterStill.blockID, 0, 2);

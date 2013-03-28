@@ -9,7 +9,7 @@ public abstract class AreaGenerator extends WeightedRandomItem {
 		super(par1);
 	}
 
-	static final int k = 64;
+	static final int j = 64;
 
 	public abstract void generate(World world, int i, int j);
 }

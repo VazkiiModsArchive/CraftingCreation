@@ -12,7 +12,8 @@ public class AreaClayBoulder extends AreaGenerator {
 		super(15);
 	}
 
-	public void generate(World world, int i, int j) {
+	public void generate(World world, int i, int k) {
+		int j = this.j - 1;
 		int clayLevel = world.rand.nextInt(5);
 		
 		world.setBlockAndMetadataWithNotify(i + 0, j + 0, k + 0, ModBlocks.creationClay.blockID, 0, 3);
