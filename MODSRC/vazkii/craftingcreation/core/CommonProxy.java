@@ -1,5 +1,6 @@
 package vazkii.craftingcreation.core;
 
+import net.minecraft.creativetab.CreativeTabs;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
