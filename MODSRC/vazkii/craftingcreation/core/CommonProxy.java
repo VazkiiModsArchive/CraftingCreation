@@ -1,6 +1,9 @@
 package vazkii.craftingcreation.core;
 
+import net.minecraftforge.common.DimensionManager;
 import vazkii.craftingcreation.block.ModBlocks;
+import vazkii.craftingcreation.dim.BiomeCreation;
+import vazkii.craftingcreation.dim.WorldProviderCreation;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -17,6 +20,12 @@ public class CommonProxy {
 		
 		ModBlocks.nameBlocks();
 		//ModItems.nameItems();
+	}
+	
+	public void initDimension() {
+		BiomeCreation.theBiome = new BiomeCreation(ConfigurationHandler.biomeID);
+		DimensionManager.registerProviderType(ConfigurationHandler.dimID, WorldProviderCreation.class, false);
+		DimensionManager.registerDimension(ConfigurationHandler.dimID, ConfigurationHandler.dimID);
 	}
 
 }

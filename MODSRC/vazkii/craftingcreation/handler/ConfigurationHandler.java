@@ -31,12 +31,18 @@ public class ConfigurationHandler {
 					itemIDCreationClayArrow = 13331,
 					itemIDCreationStar = 13332;
 	
+	public static int dimID = 19;
+	public static int biomeID = 39;
+	
 	private static Configuration config;
 	
 	public static void loadConfig(File file) {
 		config = new Configuration(file);
 		
 		config.load();
+		
+		dimID = config.get(Configuration.CATEGORY_GENERAL, "dimensionID", dimID).getInt(dimID);
+		biomeID = config.get(Configuration.CATEGORY_GENERAL, "biomeID", biomeID).getInt(biomeID);
 		
 		blockIDCreationClay = loadBlock("creationClay", blockIDCreationClay);
 		blockIDCreationClayBreakable = loadBlock("creationClayBreakable", blockIDCreationClayBreakable);
