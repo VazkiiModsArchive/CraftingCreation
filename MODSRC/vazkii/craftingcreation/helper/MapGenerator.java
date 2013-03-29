@@ -35,7 +35,6 @@ public final class MapGenerator {
 		MAP_AREAS.add(new AreaClayBoulder());
 		MAP_AREAS.add(new AreaClayPit());
 		MAP_AREAS.add(new AreaClayTree());
-		MAP_AREAS.add(new AreaSacredKiln());
 		MAP_AREAS.add(new AreaTerrainBoulder());
 		MAP_AREAS.add(new AreaTerrainPond());
 		MAP_AREAS.add(new AreaTerrainTower());

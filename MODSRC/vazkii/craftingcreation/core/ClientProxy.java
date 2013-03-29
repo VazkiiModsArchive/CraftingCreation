@@ -1,12 +1,20 @@
 package vazkii.craftingcreation.core;
 
-import vazkii.craftingcreation.client.GameItemRender;
-import vazkii.craftingcreation.item.ModItems;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
+import vazkii.craftingcreation.client.GameItemRender;
+import vazkii.craftingcreation.client.HUD;
+import vazkii.craftingcreation.item.ModItems;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 public class ClientProxy extends CommonProxy {
 
+	@Override
+	public void initTickHandler() {
+		TickRegistry.registerTickHandler(new HUD(), Side.CLIENT);
+	}
+	
 	@Override
 	public void initClient() {
 		IItemRenderer renderer = new GameItemRender();

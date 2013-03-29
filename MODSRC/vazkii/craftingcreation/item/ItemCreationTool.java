@@ -2,6 +2,10 @@ package vazkii.craftingcreation.item;
 
 import java.util.List;
 
+import vazkii.craftingcreation.block.BlockCreationClay;
+import vazkii.craftingcreation.block.ModBlocks;
+
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -28,6 +32,16 @@ public class ItemCreationTool extends ItemCraftingCreation implements ILevelable
 		ItemStack lvl2 = new ItemStack(par1, 1, 0);
 		lvl2.addEnchantment(Enchantment.efficiency, 2);
 		par3List.add(lvl2);
+	}
+	
+	@Override
+	public boolean canHarvestBlock(Block par1Block) {
+		return false;
+	}
+	
+	@Override
+	public float getStrVsBlock(ItemStack itemstack, Block block, int metadata) {
+		return block instanceof BlockCreationClay && BlockCreationClay.canHarvestBlock(itemstack, metadata) ? (3F + getLevel(itemstack) - (BlockCreationClay.getLevel(metadata))) : 1F;
 	}
 
 	@Override

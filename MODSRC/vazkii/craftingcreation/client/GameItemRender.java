@@ -26,7 +26,7 @@ public class GameItemRender implements IItemRenderer {
 		
 		font.setUnicodeFlag(true);
 		ILevelable itemCC = (ILevelable) item.getItem();
-		font.drawStringWithShadow("" + itemCC.getLevel(item), 1, 8, 0xFF6666);
+		font.drawStringWithShadow("" + (itemCC.getLevel(item) + 1), 1, 8, 0xFF6666);
 		font.setUnicodeFlag(false);
 	}
 

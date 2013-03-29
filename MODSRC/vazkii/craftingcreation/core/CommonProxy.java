@@ -24,11 +24,17 @@ public class CommonProxy {
 		ModBlocks.nameBlocks();
 		ModItems.nameItems();
 		
+		initTickHandler();
+		
 		initClient();
 	}
 	
+	public void initTickHandler() {
+		// TODO Add Server Tick handler
+	}
+	
 	public void initClient() {
-		
+		// NO-OP
 	}
 	
 	public void initDimension() {
