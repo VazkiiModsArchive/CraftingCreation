@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public class AreaTerrainPond extends AreaGenerator {
 
 	public AreaTerrainPond() {
-		super(3);
+		super(5);
 	}
 
 	public void generate(World world, int i, int k) {

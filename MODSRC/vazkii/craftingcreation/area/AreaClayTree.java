@@ -9,7 +9,7 @@ import vazkii.craftingcreation.block.ModBlocks;
 public class AreaClayTree extends AreaGenerator {
 
 	public AreaClayTree() {
-		super(15);
+		super(10);
 	}
 
 	public void generate(World world, int i, int k) {

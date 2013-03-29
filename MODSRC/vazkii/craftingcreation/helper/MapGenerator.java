@@ -14,6 +14,7 @@ import vazkii.craftingcreation.area.AreaGenerator;
 import vazkii.craftingcreation.area.AreaRedBase;
 import vazkii.craftingcreation.area.AreaSacredKiln;
 import vazkii.craftingcreation.area.AreaTerrainBoulder;
+import vazkii.craftingcreation.area.AreaTerrainLavaPit;
 import vazkii.craftingcreation.area.AreaTerrainPond;
 import vazkii.craftingcreation.area.AreaTerrainTower;
 import vazkii.craftingcreation.block.ModBlocks;
@@ -22,7 +23,7 @@ public final class MapGenerator {
 	
 	public static final List<AreaGenerator> MAP_AREAS = new ArrayList();
 	
-	public static boolean isMapCleared = false; // TODO Keep as true
+	public static boolean isMapCleared = false;
 	
 	static {
 		MAP_AREAS.add(new AreaClayBoulder());
@@ -32,6 +33,7 @@ public final class MapGenerator {
 		MAP_AREAS.add(new AreaTerrainBoulder());
 		MAP_AREAS.add(new AreaTerrainPond());
 		MAP_AREAS.add(new AreaTerrainTower());
+		MAP_AREAS.add(new AreaTerrainLavaPit());
 	}
 	
 	private static final String[] MAP = new String[] {
@@ -77,7 +79,6 @@ public final class MapGenerator {
 		if(!GameHelper.isWorldCreation(world))
 			return;
 		
-		System.out.println("generateTime!");
 		clearMap(world);
 		
 		for(int z = 0; z < MAP.length; z++) {

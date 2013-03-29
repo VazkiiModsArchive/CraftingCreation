@@ -12,7 +12,7 @@ public class AreaSacredKiln extends AreaGenerator {
 	public static final AreaSacredKiln INSTANCE = new AreaSacredKiln();
 	
 	public AreaSacredKiln() {
-		super(5);
+		super(7);
 	}
 
 	public void generate(World world, int i, int k) {

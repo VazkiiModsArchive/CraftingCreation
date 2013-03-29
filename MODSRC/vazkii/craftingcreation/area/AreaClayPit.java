@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class AreaClayPit extends AreaGenerator {
 
 	public AreaClayPit() {
-		super(15);
+		super(10);
 	}
 
 	public void generate(World world, int i, int k) {
