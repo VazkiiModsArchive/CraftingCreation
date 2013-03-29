@@ -9,8 +9,10 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class ItemCreationTool extends ItemCraftingCreation implements ILevelable, IMark {
 
@@ -19,6 +21,7 @@ public class ItemCreationTool extends ItemCraftingCreation implements ILevelable
 	public ItemCreationTool(int par1, int par2) {
 		super(par1);
 		this.toolType = par2;
+		setMaxDamage(16);
 	}
 	
 	@Override
@@ -35,8 +38,17 @@ public class ItemCreationTool extends ItemCraftingCreation implements ILevelable
 	}
 	
 	@Override
-	public boolean canHarvestBlock(Block par1Block) {
-		return false;
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+		par3List.add("Value: " + getValue(par1ItemStack));
+	}
+	
+	@Override
+	public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int par3, int par4, int par5, int par6, EntityLiving par7EntityLiving) {
+		par1ItemStack.damageItem(1, par7EntityLiving);
+		if(par1ItemStack.getItemDamage() == (getMaxDamage() - 1))
+			par1ItemStack.damageItem(1, par7EntityLiving);
+
+		return true;
 	}
 	
 	@Override
@@ -57,5 +69,10 @@ public class ItemCreationTool extends ItemCraftingCreation implements ILevelable
 	@Override
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return false;
+	}
+
+	@Override
+	public int getValue(ItemStack stack) {
+		return (int) (((getMaxDamage() * Math.pow(2, getLevel(stack))) - Math.min(getMaxDamage() - 1, stack.getItemDamage()) * Math.pow(2, (getLevel(stack)))));
 	}
 }

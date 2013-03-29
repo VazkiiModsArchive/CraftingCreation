@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -19,7 +20,12 @@ public class ItemCreationArmor extends ItemArmor implements IMark, ILevelable {
 	public ItemCreationArmor(int par1, int armorType) {
 		super(par1 - 256, material, armorType, armorType);
 		setCreativeTab(ModCreativeTab.theTab);
-		setMaxDamage(32);
+		setMaxDamage(48);
+	}
+
+	@Override
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+		par3List.add("Value: " + getValue(par1ItemStack));
 	}
 	
 	@Override
@@ -53,5 +59,10 @@ public class ItemCreationArmor extends ItemArmor implements IMark, ILevelable {
 	@Override
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return false;
+	}
+	
+	@Override
+	public int getValue(ItemStack stack) {
+		return (int) ((((getMaxDamage() / 4) * Math.pow(2, getLevel(stack))) - ((stack.getMaxDamage() - stack.getItemDamage()) * (Math.pow(2, getLevel(stack)))) / 4));
 	}
 }

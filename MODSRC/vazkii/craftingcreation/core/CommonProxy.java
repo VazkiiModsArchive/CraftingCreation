@@ -1,10 +1,12 @@
 package vazkii.craftingcreation.core;
 
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
 import vazkii.craftingcreation.block.ModBlocks;
 import vazkii.craftingcreation.dim.BiomeCreation;
 import vazkii.craftingcreation.dim.WorldProviderCreation;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
+import vazkii.craftingcreation.handler.ItemNoSmuggleHandler;
 import vazkii.craftingcreation.item.ModItems;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -25,6 +27,8 @@ public class CommonProxy {
 		ModItems.nameItems();
 		
 		initTickHandler();
+		
+		MinecraftForge.EVENT_BUS.register(new ItemNoSmuggleHandler());
 		
 		initClient();
 	}

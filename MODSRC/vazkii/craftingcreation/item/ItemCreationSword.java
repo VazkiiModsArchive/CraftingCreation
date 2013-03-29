@@ -6,12 +6,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 public class ItemCreationSword extends ItemCraftingCreation implements IMark, ILevelable {
 
 	public ItemCreationSword(int par1) {
 		super(par1);
+		setMaxDamage(20);
 	}
 	
 	@Override
@@ -25,6 +27,11 @@ public class ItemCreationSword extends ItemCraftingCreation implements IMark, IL
 		ItemStack lvl2 = new ItemStack(par1, 1, 0);
 		lvl2.addEnchantment(Enchantment.sharpness, 2);
 		par3List.add(lvl2);
+	}
+
+	@Override
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+		par3List.add("Value: " + getValue(par1ItemStack));
 	}
 	
 	@Override
@@ -46,5 +53,9 @@ public class ItemCreationSword extends ItemCraftingCreation implements IMark, IL
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return false;
 	}
-
+	
+	@Override
+	public int getValue(ItemStack stack) {
+		return (int) (((getMaxDamage() * Math.pow(2, getLevel(stack))) - (stack.getMaxDamage() - stack.getItemDamage()) * (Math.pow(2, getLevel(stack)))));
+	}
 }

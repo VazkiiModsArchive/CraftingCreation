@@ -3,6 +3,7 @@ package vazkii.craftingcreation.item;
 import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 public class ItemCreationClay extends ItemCraftingCreation implements IMark, ILevelable {
@@ -11,6 +12,11 @@ public class ItemCreationClay extends ItemCraftingCreation implements IMark, ILe
 		super(par1);
 		setHasSubtypes(true);
 		setMaxStackSize(1);
+	}
+
+	@Override
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+		par3List.add("Value: " + getValue(par1ItemStack));
 	}
 	
 	@Override
@@ -29,5 +35,10 @@ public class ItemCreationClay extends ItemCraftingCreation implements IMark, ILe
 	@Override
 	public String getMarker(ItemStack stack) {
 		return "Clay";
+	}
+
+	@Override
+	public int getValue(ItemStack stack) {
+		return (int) (2 * Math.pow(2, (getLevel(stack))));
 	}
 }

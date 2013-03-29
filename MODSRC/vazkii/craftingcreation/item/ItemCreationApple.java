@@ -20,6 +20,11 @@ public class ItemCreationApple extends ItemFood implements IMark, ILevelable {
 	}
 	
 	@Override
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+		par3List.add("Value: " + getValue(par1ItemStack));
+	}
+	
+	@Override
     public void func_94581_a(IconRegister par1IconRegister) {
         iconIndex = par1IconRegister.func_94245_a("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", ""));
     }
@@ -49,6 +54,11 @@ public class ItemCreationApple extends ItemFood implements IMark, ILevelable {
 	@Override
 	public String getMarker(ItemStack stack) {
 		return "Apple";
+	}
+	
+	@Override
+	public int getValue(ItemStack stack) {
+		return (int) (5 * Math.pow(2, getLevel(stack)));
 	}
 
 }
