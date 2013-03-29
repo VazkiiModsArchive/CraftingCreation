@@ -2,9 +2,11 @@ package vazkii.craftingcreation.helper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
+import vazkii.craftingcreation.CraftingCreation;
 import vazkii.craftingcreation.area.AreaAltar;
 import vazkii.craftingcreation.area.AreaBlueBase;
 import vazkii.craftingcreation.area.AreaClayBoulder;
@@ -79,7 +81,7 @@ public final class MapGenerator {
 		if(!GameHelper.isWorldCreation(world))
 			return;
 		
-		clearMap(world);
+		//clearMap(world);
 		
 		for(int z = 0; z < MAP.length; z++) {
 			String str = MAP[z];
@@ -113,6 +115,7 @@ public final class MapGenerator {
 	}
 	
 	public static void generateAt(World world, int x, int z, AreaGenerator generator) {
+		CraftingCreation.logger.log(Level.INFO, "Generating " + generator + " @ " + x + ", " + z);
 		generator.generate(world, x * 7, z * 7);
 	}
 }

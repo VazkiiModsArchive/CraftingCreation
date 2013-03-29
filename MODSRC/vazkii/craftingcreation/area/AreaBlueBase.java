@@ -274,7 +274,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 1, k + 0, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 1, k + 1, ModBlocks.creationBricks.blockID, 0, 3);
-		world.setBlockAndMetadataWithNotify(i + 12, j + 1, k + 10, Block.blockGold.blockID, 0, 3);
+		world.setBlockAndMetadataWithNotify(i + 12, j + 1, k + 10, Block.bedrock.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 1, k + 12, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 2, k + 0, ModBlocks.creationBricks.blockID, 0, 3);
@@ -381,11 +381,11 @@ public class AreaBlueBase extends AreaGenerator {
 		for(int y = 6; y < 64; y++) {
 			for(int x = 1; x < 13; x++) {
 				world.setBlockAndMetadataWithNotify(i + x, j + y, k, ModBlocks.invisibleWall.blockID, 0, 3);
-				world.setBlockAndMetadataWithNotify(i + x, j + y, k + 14, ModBlocks.invisibleWall.blockID, 0, 3);
+				world.setBlockAndMetadataWithNotify(i + x, j + y, k + 13, ModBlocks.invisibleWall.blockID, 0, 3);
 			}
 			for(int z = 0; z < 14; z++) {
 				world.setBlockAndMetadataWithNotify(i, j + y, k + z, ModBlocks.invisibleWall.blockID, 0, 3);
-				world.setBlockAndMetadataWithNotify(i + 14, j + y, k + z, ModBlocks.invisibleWall.blockID, 0, 3);
+				world.setBlockAndMetadataWithNotify(i + 13, j + y, k + z, ModBlocks.invisibleWall.blockID, 0, 3);
 			}
 		}	
 	}

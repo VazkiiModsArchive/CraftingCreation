@@ -3,6 +3,7 @@ package vazkii.craftingcreation.block;
 import java.util.ArrayList;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.Explosion;
@@ -13,6 +14,11 @@ public class BlockInvisibleWall extends BlockCraftingCreation {
 	public BlockInvisibleWall(int id) {
 		super(id, Material.air);
 		setBlockUnbreakable();
+	}
+	
+	@Override
+	public int getRenderType() {
+		return -1;
 	}
 	
 	@Override
