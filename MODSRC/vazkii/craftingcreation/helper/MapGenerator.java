@@ -18,6 +18,7 @@ import vazkii.craftingcreation.area.AreaClayTree;
 import vazkii.craftingcreation.area.AreaGenerator;
 import vazkii.craftingcreation.area.AreaRedBase;
 import vazkii.craftingcreation.area.AreaSacredKiln;
+import vazkii.craftingcreation.area.AreaSurroundingWalls;
 import vazkii.craftingcreation.area.AreaTerrainBoulder;
 import vazkii.craftingcreation.area.AreaTerrainLavaPit;
 import vazkii.craftingcreation.area.AreaTerrainPond;
@@ -42,28 +43,28 @@ public final class MapGenerator {
 	}
 	
 	private static final String[] MAP = new String[] {
-		"1EEEEEEEEEEEEEEEEEEEEEE",
-		"EEEEEREEREEREEREEREEAEE",
-		"EEKEEEEEEEEEEEEEEEEKEEE",
-		"EEEEEREEREEREEREEREEEEE",
-		"EEEEEEEEEEEEEEEEEEEKEEE",
+		"REEEEEEEEEEEEEEEEEEEEEE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
-		"EEREEREEREEREEREEREEREE",
+		"EEKEE0EE0EE0EE0EE0EEAEE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
-		"EEREEREEREEREEREEREEREE",
+		"EE0EE1EE1EE1EE1EEKEE0EE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
-		"EEREEREEREEAEEREEREEREE",
+		"EE0EE1EE2EE2EE2EE1EE0EE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
-		"EEREEREEREEREEREEREEREE",
+		"EE0EE1EE2EEKEE2EE1EE0EE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
-		"EEREEREEREEREEREEREEREE",
+		"EE0EE1EE2EE2EE2EE1EE0EE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
-		"EEAEEREEREEREEREEREEKEE",
-		"EEEEEEEEEEEEEEEEEEEEE0E",
+		"EEEEEEEEEEEEEEEEEEEEEEE",
+		"EE0EEKEE1EE1EE1EE1EE0EE",
+		"EEEEEEEEEEEEEEEEEEEEEEE",
+		"EEEEEEEEEEEEEEEEEEEEEEE",
+		"EEAEE0EE0EE0EE0EE0EEKEE",
+		"EEEEEEEEEEEEEEEEEEEEEBE",
 		"EEEEEEEEEEEEEEEEEEEEEEE"
 	};
 	
@@ -78,6 +79,8 @@ public final class MapGenerator {
 				generateAt(world, x, z, c);
 			}
 		}
+		generateAt(world, 0, 0, AreaSurroundingWalls.INSTANCE);
+		
 		isMapCleared = false;
 	}
 	
@@ -88,15 +91,22 @@ public final class MapGenerator {
 						return;
 			case 'K' : generateAt(world, x, z, AreaSacredKiln.INSTANCE);
 						return;
-			case '0' : generateAt(world, x, z, AreaBlueBase.INSTANCE);
+			case 'B' : generateAt(world, x, z, AreaBlueBase.INSTANCE);
 						return;
-			case '1' : generateAt(world, x, z, AreaRedBase.INSTANCE);
+			case 'R' : generateAt(world, x, z, AreaRedBase.INSTANCE);
 						return;
-			case 'R' : generateRandomAt(world, x, z);
+			case '0' : generateRandomAt(world, x, z, 0);
+						return;
+			case '1' : generateRandomAt(world, x, z, 1);
+						return;
+			case '2' : generateRandomAt(world, x, z, 2);
+						return;
  		}
 	}	
 	
-	public static void generateRandomAt(World world, int x, int z) {
+	public static void generateRandomAt(World world, int x, int z, int level) {
+		AreaGenerator.currentClayLevel = level;
+		
 		WeightedRandom random = new WeightedRandom();
 		AreaGenerator generator = (AreaGenerator) random.getRandomItem(world.rand, MAP_AREAS);
 		generateAt(world, x, z, generator);

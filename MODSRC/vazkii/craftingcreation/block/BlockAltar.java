@@ -3,6 +3,7 @@ package vazkii.craftingcreation.block;
 import java.util.Random;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
@@ -10,6 +11,14 @@ public class BlockAltar extends BlockCraftingCreation {
 
 	public BlockAltar(int id) {
 		super(id, Material.rock);
+	}
+	
+	@Override
+	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+		if(par5EntityPlayer.getHealth() < 12)
+			par5EntityPlayer.heal(12 - par5EntityPlayer.getHealth());
+
+		return true;
 	}
 	
 	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random) {

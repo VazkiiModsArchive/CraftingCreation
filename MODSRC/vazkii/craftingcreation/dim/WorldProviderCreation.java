@@ -57,7 +57,7 @@ public class WorldProviderCreation extends WorldProvider {
 	
 	@Override
     public int getAverageGroundLevel() {
-        return 64;
+        return 7;
     }
 	
 	@Override

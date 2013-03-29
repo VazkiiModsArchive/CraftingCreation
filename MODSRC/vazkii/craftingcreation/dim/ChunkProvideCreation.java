@@ -1,5 +1,6 @@
 package vazkii.craftingcreation.dim;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bouncycastle.util.Arrays;
@@ -31,10 +32,8 @@ public class ChunkProvideCreation implements IChunkProvider {
 	@Override
 	public Chunk provideChunk(int i, int j) {
 		byte[] array = new byte[32768];
-		Arrays.fill(array, (byte) 0);
-		generateChunk(array);
-		
-		Chunk chunk = new Chunk(world, array, i, j);
+		Chunk chunk = new Chunk(world, i, j);
+		generateChunk(chunk);
 		
 		Arrays.fill(array, (byte) ConfigurationHandler.biomeID);
 		chunk.setBiomeArray(array);
@@ -42,11 +41,11 @@ public class ChunkProvideCreation implements IChunkProvider {
 		return chunk;
 	}
 	
-	public void generateChunk(byte[] array) {
+	public void generateChunk(Chunk chunk) {
 		for(int x = 0; x < 16; x++)
 			for(int z = 0; z < 16; z++)
 				for(int y = 0; y < 7; y++)
-					array[(y * 256) + (z * 16) + x] = (byte) ModBlocks.creationClay.blockID;
+					chunk.setBlockIDWithMetadata(x, y, z, ModBlocks.creationClay.blockID, 0);
 	}
 
 	@Override
@@ -81,7 +80,7 @@ public class ChunkProvideCreation implements IChunkProvider {
 
 	@Override
 	public List getPossibleCreatures(EnumCreatureType enumcreaturetype, int i, int j, int k) {
-		return null;
+		return new ArrayList();
 	}
 
 	@Override

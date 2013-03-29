@@ -5,6 +5,7 @@
 package vazkii.craftingcreation.area;
 import java.util.Random;
 
+import vazkii.craftingcreation.block.BlockCreationClay;
 import vazkii.craftingcreation.block.ModBlocks;
 
 import net.minecraft.world.World;
@@ -17,7 +18,7 @@ public class AreaClayPit extends AreaGenerator {
 
 	public void generate(World world, int i, int k) {
 		int j = this.j - 7;
-		int clayLevel = world.rand.nextInt(5);
+		int clayLevel = BlockCreationClay.getMetaFor(currentClayLevel, 0);
 		
 		world.setBlockAndMetadataWithNotify(i + 0, j + 5, k + 1, ModBlocks.creationClayBreakable.blockID, clayLevel, 2);
 		world.setBlockAndMetadataWithNotify(i + 0, j + 5, k + 2, ModBlocks.creationClayBreakable.blockID, clayLevel, 2);
