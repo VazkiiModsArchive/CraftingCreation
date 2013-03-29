@@ -6,6 +6,7 @@ import org.bouncycastle.util.Arrays;
 
 import vazkii.craftingcreation.block.ModBlocks;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
+import vazkii.craftingcreation.helper.MapGenerator;
 
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
@@ -29,15 +30,23 @@ public class ChunkProvideCreation implements IChunkProvider {
 
 	@Override
 	public Chunk provideChunk(int i, int j) {
-		Chunk chunk = new Chunk(world, i, j);
-		generateChunk(chunk);
+		byte[] array = new byte[32768];
+		Arrays.fill(array, (byte) 0);
+		generateChunk(array);
+		
+		Chunk chunk = new Chunk(world, array, i, j);
+		
+		Arrays.fill(array, (byte) ConfigurationHandler.biomeID);
+		chunk.setBiomeArray(array);
+		
 		return chunk;
 	}
 	
-	public void generateChunk(Chunk chunk) {
-		byte[] array = new byte[32768];
-		Arrays.fill(array, (byte) ConfigurationHandler.biomeID);
-		chunk.setBiomeArray(array);
+	public void generateChunk(byte[] array) {
+		for(int x = 0; x < 16; x++)
+			for(int z = 0; z < 16; z++)
+				for(int y = 0; y < 7; y++)
+					array[(y * 256) + (z * 16) + x] = (byte) ModBlocks.creationClay.blockID;
 	}
 
 	@Override
@@ -52,7 +61,7 @@ public class ChunkProvideCreation implements IChunkProvider {
 
 	@Override
 	public boolean saveChunks(boolean flag, IProgressUpdate iprogressupdate) {
-		return false;
+		return true;
 	}
 
 	@Override

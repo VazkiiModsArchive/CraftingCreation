@@ -1,5 +1,6 @@
 package vazkii.craftingcreation.dim;
 
+import vazkii.craftingcreation.helper.GameHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.multiplayer.ChunkProviderClient;
 import net.minecraft.util.ChunkCoordinates;
@@ -63,5 +64,10 @@ public class WorldProviderCreation extends WorldProvider {
     public boolean doesXZShowFog(int par1, int par2) {
         return true;
     }
+	
+	@Override
+	public int getActualHeight() {
+		return 7 + GameHelper.MAP_HEIGHT;
+	}
 
 }

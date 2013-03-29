@@ -1,11 +1,14 @@
 package vazkii.craftingcreation.helper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import vazkii.craftingcreation.CraftingCreation;
 import vazkii.craftingcreation.area.AreaAltar;
 import vazkii.craftingcreation.area.AreaBlueBase;
@@ -41,8 +44,8 @@ public final class MapGenerator {
 	private static final String[] MAP = new String[] {
 		"1EEEEEEEEEEEEEEEEEEEEEE",
 		"EEEEEREEREEREEREEREEAEE",
-		"EEEKEEEEEEEEEEEEEEEKEEE",
-		"EEREEREEREEREEREEREEEEE",
+		"EEKEEEEEEEEEEEEEEEEKEEE",
+		"EEEEEREEREEREEREEREEEEE",
 		"EEEEEEEEEEEEEEEEEEEKEEE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
 		"EEREEREEREEREEREEREEREE",
@@ -58,49 +61,15 @@ public final class MapGenerator {
 		"EEEEEEEEEEEEEEEEEEEEEEE",
 		"EEEEEEEEEEEEEEEEEEEEEEE",
 		"EEREEREEREEREEREEREEREE",
-		"EEEKEEEEEEEEEEEEEEEEEEE",
-		"EEAEEREEREEREEREEREEEEE",
+		"EEEEEEEEEEEEEEEEEEEEEEE",
+		"EEAEEREEREEREEREEREEKEE",
 		"EEEEEEEEEEEEEEEEEEEEE0E",
 		"EEEEEEEEEEEEEEEEEEEEEEE"
 	};
 	
-	public static void clearMap(World world) {
-		if(isMapCleared)
-			return;
-		
-		for(int y = 62; y < 64; y++) {
-			for(int x = 0; x < GameHelper.MAP_SIZE; x++) {
-				for(int z = 0; z < GameHelper.MAP_SIZE; z++) {
-					int cId = world.getBlockId(x, y, z);
-					int id = ModBlocks.creationClay.blockID;
-					if(cId != id)
-						world.setBlockAndMetadataWithNotify(x, y, z, id, 0, 2);
-				}
-			}
-		}
-		
-		for(int z = 0; z < MAP.length; z++) {
-			String str = MAP[z];
-			for(int x = 0; x < MAP.length; x++) {
-				char c = str.charAt(x);
-				if(c != 'E')
-					for(int y1 = 64; y1 < 9; y1++)
-						for(int x1 = 0; x1 < 7; x1++)
-							for(int z1 = 0; z1 < 7; z1++) {
-								int x2 = (7 * x) + x1;
-								int z2 = (7 * z) + z1;
-								int cID = world.getBlockId(x2, y1, z2);
-								if(cID != 0)
-									world.setBlockAndMetadataWithNotify(x2, y1, z2, 0, 0, 2);
-							}
-			}
-		}
-
-		isMapCleared = true;
-	}
-	
 	public static void generateMap(World world) {
-		clearMap(world);
+		if(world.isRemote)
+			return;
 		
 		for(int z = 0; z < MAP.length; z++) {
 			String str = MAP[z];
@@ -135,6 +104,6 @@ public final class MapGenerator {
 	
 	public static void generateAt(World world, int x, int z, AreaGenerator generator) {
 		CraftingCreation.logger.log(Level.INFO, "Generating " + generator + " @ " + x + ", " + z);
-		generator.generate(world, x * 7, z * 7);
+		generator.generate(world, (x * 7) + 2, (z * 7) + 2);
 	}
 }
