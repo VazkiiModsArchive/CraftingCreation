@@ -172,7 +172,6 @@ public class AreaRedBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 4, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 0, k + 1, ModBlocks.creationChest.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 5, j + 0, k + 12, Block.enchantmentTable.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 1, k + 0, ModBlocks.creationBricks.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 3);

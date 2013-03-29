@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 public final class GameHelper {
 	
 	public static final int MAP_SIZE = 23 * 7;
-	public static final int MAP_HEIGHT = 12;
+	public static final int MAP_HEIGHT = 8;
 	
 	private static boolean gameInProgress;
 	

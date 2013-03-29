@@ -64,7 +64,7 @@ public final class MapGenerator {
 		if(!GameHelper.isWorldCreation(world) || isMapCleared)
 			return;
 		
-		for(int y = 62; y < (64/* + GameHelper.MAP_HEIGHT*/); y++) 
+		for(int y = 62; y < (64 + GameHelper.MAP_HEIGHT); y++) 
 			for(int x = 0; x < GameHelper.MAP_SIZE; x++)
 				for(int z = 0; z < GameHelper.MAP_SIZE; z++) {
 					int id = y > 64 ? 0 : ModBlocks.creationClay.blockID;
