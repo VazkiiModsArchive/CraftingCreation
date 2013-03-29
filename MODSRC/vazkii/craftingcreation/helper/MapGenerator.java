@@ -29,7 +29,10 @@ public final class MapGenerator {
 	
 	public static final List<AreaGenerator> MAP_AREAS = new ArrayList();
 	
-	public static boolean isMapCleared = false;
+	public static boolean mapGenerated = false;
+	
+	public static int lastMapXRoot;
+	public static int lastMapZRoot;
 	
 	static {
 		MAP_AREAS.add(new AreaClayBoulder());
@@ -67,7 +70,7 @@ public final class MapGenerator {
 		"EEEEEEEEEEEEEEEEEEEEEEE"
 	};
 	
-	public static void generateMap(World world) {
+	public static void generateMap(World world, int xRoot, int zRoot) {
 		if(world.isRemote)
 			return;
 		
@@ -75,44 +78,46 @@ public final class MapGenerator {
 			String str = MAP[z];
 			for(int x = 0; x < MAP.length; x++) {
 				char c = str.charAt(x);
-				generateAt(world, x, z, c);
+				generateAt(world, x, z, c, xRoot, zRoot);
 			}
 		}
-		generateAt(world, 0, 0, AreaSurroundingWalls.INSTANCE);
+		generateAt(world, 0, 0, AreaSurroundingWalls.INSTANCE, xRoot, zRoot);
 		
-		isMapCleared = false;
+		mapGenerated = true;
+		lastMapXRoot = xRoot;
+		lastMapZRoot = zRoot;
 	}
 	
-	public static  void generateAt(World world, int x, int z, char c) {
+	public static  void generateAt(World world, int x, int z, char c, int xRoot, int zRoot) {
 		switch(c) {
 			case 'E' : return; 
-			case 'A' : generateAt(world, x, z, AreaAltar.INSTANCE);
+			case 'A' : generateAt(world, x, z, AreaAltar.INSTANCE, xRoot, zRoot);
 						return;
-			case 'K' : generateAt(world, x, z, AreaSacredKiln.INSTANCE);
+			case 'K' : generateAt(world, x, z, AreaSacredKiln.INSTANCE, xRoot, zRoot);
 						return;
-			case 'B' : generateAt(world, x, z, AreaBlueBase.INSTANCE);
+			case 'B' : generateAt(world, x, z, AreaBlueBase.INSTANCE, xRoot, zRoot);
 						return;
-			case 'R' : generateAt(world, x, z, AreaRedBase.INSTANCE);
+			case 'R' : generateAt(world, x, z, AreaRedBase.INSTANCE, xRoot, zRoot);
 						return;
-			case '0' : generateRandomAt(world, x, z, 0);
+			case '0' : generateRandomAt(world, x, z, 0, xRoot, zRoot);
 						return;
-			case '1' : generateRandomAt(world, x, z, 1);
+			case '1' : generateRandomAt(world, x, z, 1, xRoot, zRoot);
 						return;
-			case '2' : generateRandomAt(world, x, z, 2);
+			case '2' : generateRandomAt(world, x, z, 2, xRoot, zRoot);
 						return;
  		}
 	}	
 	
-	public static void generateRandomAt(World world, int x, int z, int level) {
+	public static void generateRandomAt(World world, int x, int z, int level, int xRoot, int zRoot) {
 		AreaGenerator.currentClayLevel = level;
 		
 		WeightedRandom random = new WeightedRandom();
 		AreaGenerator generator = (AreaGenerator) random.getRandomItem(world.rand, MAP_AREAS);
-		generateAt(world, x, z, generator);
+		generateAt(world, x, z, generator, xRoot, zRoot);
 	}
 	
-	public static void generateAt(World world, int x, int z, AreaGenerator generator) {
+	public static void generateAt(World world, int x, int z, AreaGenerator generator, int xRoot, int zRoot) {
 		CraftingCreation.logger.log(Level.INFO, "Generating " + generator + " @ " + x + ", " + z);
-		generator.generate(world, (x * 7) + 2, (z * 7) + 2);
+		generator.generate(world, xRoot + (x * 7) + 2, zRoot + (z * 7) + 2);
 	}
 }

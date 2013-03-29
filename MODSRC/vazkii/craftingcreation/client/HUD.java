@@ -36,6 +36,11 @@ public class HUD implements ITickHandler  {
 			String bounty = "Your Bounty: " + GameHelper.getTotalValueHeld(mc.thePlayer) + " pt.";
 			mc.fontRenderer.drawStringWithShadow(bounty, res.getScaledWidth() / 2 - mc.fontRenderer.getStringWidth(bounty) / 2, res.getScaledHeight() - 72, 0xFFD821);
 		
+			if(GameHelper.isGameInProgress()) {
+				String time = "Time Remaining: " + GameHelper.getGameTimeString();
+				mc.fontRenderer.drawStringWithShadow(time, res.getScaledWidth() / 2 - mc.fontRenderer.getStringWidth(bounty) / 2, 3, (GameHelper.gameTime >= 1200 ? 0xFFD821 : 0xFF2B21));
+			}
+			
 			RenderItem itemRender = new RenderItem();
 			int start = res.getScaledHeight() / 2;
 			for(int i = 0; i < 3; i++) {

@@ -4,6 +4,8 @@ import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import vazkii.craftingcreation.client.GameItemRender;
 import vazkii.craftingcreation.client.HUD;
+import vazkii.craftingcreation.handler.GameCountdownHandler;
+import vazkii.craftingcreation.helper.GameHelper;
 import vazkii.craftingcreation.item.ModItems;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -13,6 +15,23 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void initTickHandler() {
 		TickRegistry.registerTickHandler(new HUD(), Side.CLIENT);
+		TickRegistry.registerTickHandler(new GameCountdownHandler(), Side.CLIENT);
+	}
+	
+	@Override
+	public void recieveTimePacket(int time, boolean redTeam) {
+		GameHelper.gameTime = time;
+		GameHelper.isInRedTeam = redTeam;
+		
+		GameHelper.redTeamScore = 0;
+		GameHelper.blueTeamScore = 1;
+	}
+	
+	@Override
+	public void recieveScorePacket(int score, boolean redTeam) {
+		if(redTeam)
+			GameHelper.redTeamScore = score;
+		else GameHelper.blueTeamScore = score;
 	}
 	
 	@Override

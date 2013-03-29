@@ -7,12 +7,15 @@ import vazkii.craftingcreation.block.ModBlocks;
 import vazkii.craftingcreation.dim.BiomeCreation;
 import vazkii.craftingcreation.dim.WorldProviderCreation;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
+import vazkii.craftingcreation.handler.GameCountdownHandler;
 import vazkii.craftingcreation.handler.GuiHandler;
 import vazkii.craftingcreation.handler.ItemNoSmuggleHandler;
 import vazkii.craftingcreation.item.ModItems;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 public class CommonProxy {
 	
@@ -39,10 +42,18 @@ public class CommonProxy {
 	}
 	
 	public void initTickHandler() {
-		// TODO Add Server Tick handler
+		TickRegistry.registerTickHandler(new GameCountdownHandler(), Side.SERVER);
 	}
 	
 	public void initClient() {
+		// NO-OP
+	}
+	
+	public void recieveTimePacket(int time, boolean redTeam) {
+		// NO-OP
+	}
+	
+	public void recieveScorePacket(int score, boolean redTeam) {
 		// NO-OP
 	}
 	
