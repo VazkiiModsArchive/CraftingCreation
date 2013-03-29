@@ -23,6 +23,12 @@ public class CommonProxy {
 		
 		ModBlocks.nameBlocks();
 		ModItems.nameItems();
+		
+		initClient();
+	}
+	
+	public void initClient() {
+		
 	}
 	
 	public void initDimension() {
