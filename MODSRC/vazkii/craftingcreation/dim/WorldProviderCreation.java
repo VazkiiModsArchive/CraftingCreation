@@ -30,7 +30,7 @@ public class WorldProviderCreation extends WorldProvider {
 	
 	@Override
     public boolean isSkyColored() {
-        return false;
+        return true;
     }
 	
 	@Override
@@ -51,7 +51,7 @@ public class WorldProviderCreation extends WorldProvider {
 	
 	@Override
     public ChunkCoordinates getEntrancePortalLocation() {
-        return new ChunkCoordinates(0, 64, 0);
+        return new ChunkCoordinates(0, 0, 0);
     }
 	
 	@Override

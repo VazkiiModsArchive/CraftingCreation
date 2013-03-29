@@ -5,6 +5,7 @@ import vazkii.craftingcreation.block.ModBlocks;
 import vazkii.craftingcreation.dim.BiomeCreation;
 import vazkii.craftingcreation.dim.WorldProviderCreation;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
+import vazkii.craftingcreation.item.ModItems;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
@@ -15,11 +16,13 @@ public class CommonProxy {
 	}
 	
 	public void init(FMLInitializationEvent event) {
+		initDimension();
+		
 		ModBlocks.initBlocks();
-		//ModItems.initItems();
+		ModItems.initItems();
 		
 		ModBlocks.nameBlocks();
-		//ModItems.nameItems();
+		ModItems.nameItems();
 	}
 	
 	public void initDimension() {

@@ -2,7 +2,10 @@ package vazkii.craftingcreation.dim;
 
 import java.util.List;
 
+import org.bouncycastle.util.Arrays;
+
 import vazkii.craftingcreation.block.ModBlocks;
+import vazkii.craftingcreation.handler.ConfigurationHandler;
 
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
@@ -21,7 +24,7 @@ public class ChunkProvideCreation implements IChunkProvider {
 	
 	@Override
 	public boolean chunkExists(int i, int j) {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -32,11 +35,9 @@ public class ChunkProvideCreation implements IChunkProvider {
 	}
 	
 	public void generateChunk(Chunk chunk) {
-		for(int y = 0; y < 256; y++) {
-			for(int x = 0; x < 16; x++)
-				for(int z = 0; z < 16; z++)
-					chunk.setBlockIDWithMetadata(x, y, z, ModBlocks.invisibleWall.blockID, 0);
-		}
+		byte[] array = new byte[32768];
+		Arrays.fill(array, (byte) ConfigurationHandler.biomeID);
+		chunk.setBiomeArray(array);
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class ChunkProvideCreation implements IChunkProvider {
 
 	@Override
 	public boolean saveChunks(boolean flag, IProgressUpdate iprogressupdate) {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -61,7 +62,7 @@ public class ChunkProvideCreation implements IChunkProvider {
 
 	@Override
 	public boolean canSave() {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -88,5 +89,4 @@ public class ChunkProvideCreation implements IChunkProvider {
 	public void recreateStructures(int i, int j) {
 		// NO-OP
 	}
-
 }

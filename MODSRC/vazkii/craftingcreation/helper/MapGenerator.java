@@ -65,23 +65,42 @@ public final class MapGenerator {
 	};
 	
 	public static void clearMap(World world) {
-		if(!GameHelper.isWorldCreation(world) || isMapCleared)
+		if(isMapCleared)
 			return;
 		
-		for(int y = 62; y < (64 + GameHelper.MAP_HEIGHT); y++) 
-			for(int x = 0; x < GameHelper.MAP_SIZE; x++)
+		for(int y = 62; y < 64; y++) {
+			for(int x = 0; x < GameHelper.MAP_SIZE; x++) {
 				for(int z = 0; z < GameHelper.MAP_SIZE; z++) {
-					int id = y > 64 ? 0 : ModBlocks.creationClay.blockID;
-					world.setBlockAndMetadataWithNotify(x, y, z, id, 0, 3);
+					int cId = world.getBlockId(x, y, z);
+					int id = ModBlocks.creationClay.blockID;
+					if(cId != id)
+						world.setBlockAndMetadataWithNotify(x, y, z, id, 0, 2);
 				}
+			}
+		}
+		
+		for(int z = 0; z < MAP.length; z++) {
+			String str = MAP[z];
+			for(int x = 0; x < MAP.length; x++) {
+				char c = str.charAt(x);
+				if(c != 'E')
+					for(int y1 = 64; y1 < 9; y1++)
+						for(int x1 = 0; x1 < 7; x1++)
+							for(int z1 = 0; z1 < 7; z1++) {
+								int x2 = (7 * x) + x1;
+								int z2 = (7 * z) + z1;
+								int cID = world.getBlockId(x2, y1, z2);
+								if(cID != 0)
+									world.setBlockAndMetadataWithNotify(x2, y1, z2, 0, 0, 2);
+							}
+			}
+		}
+
 		isMapCleared = true;
 	}
 	
 	public static void generateMap(World world) {
-		if(!GameHelper.isWorldCreation(world))
-			return;
-		
-		//clearMap(world);
+		clearMap(world);
 		
 		for(int z = 0; z < MAP.length; z++) {
 			String str = MAP[z];

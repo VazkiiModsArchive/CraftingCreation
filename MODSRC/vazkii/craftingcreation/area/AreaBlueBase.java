@@ -6,6 +6,7 @@ package vazkii.craftingcreation.area;
 import java.util.Random;
 
 import vazkii.craftingcreation.block.ModBlocks;
+import vazkii.craftingcreation.helper.GameHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -378,7 +379,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 13, j + 5, k + 12, ModBlocks.invisibleWall.blockID, 0, 3);
 		world.setBlockAndMetadataWithNotify(i + 13, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 3);
 
-		for(int y = 6; y < 64; y++) {
+		for(int y = 6; y < GameHelper.MAP_HEIGHT; y++) {
 			for(int x = 1; x < 13; x++) {
 				world.setBlockAndMetadataWithNotify(i + x, j + y, k, ModBlocks.invisibleWall.blockID, 0, 3);
 				world.setBlockAndMetadataWithNotify(i + x, j + y, k + 13, ModBlocks.invisibleWall.blockID, 0, 3);
