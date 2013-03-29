@@ -58,7 +58,7 @@ public class ItemCreationApple extends ItemFood implements IMark, ILevelable {
 	
 	@Override
 	public int getValue(ItemStack stack) {
-		return (int) (5 * Math.pow(2, getLevel(stack)));
+		return (int) (4 * Math.pow(2, getLevel(stack)));
 	}
 
 }

@@ -56,6 +56,6 @@ public class ItemCreationSword extends ItemCraftingCreation implements IMark, IL
 	
 	@Override
 	public int getValue(ItemStack stack) {
-		return (int) (((getMaxDamage() * Math.pow(2, getLevel(stack))) - (stack.getMaxDamage() - stack.getItemDamage()) * (Math.pow(2, getLevel(stack)))));
+		return (int) (((getMaxDamage() * Math.pow(2, getLevel(stack))) - stack.getItemDamage() * (Math.pow(2, getLevel(stack)))));
 	}
 }

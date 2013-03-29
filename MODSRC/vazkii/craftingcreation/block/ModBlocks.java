@@ -27,7 +27,7 @@ public final class ModBlocks {
 	public static void initBlocks() {
 		creationClay = new BlockCraftingCreation(blockIDCreationClay, Material.rock).setBlockUnbreakable().setUnlocalizedName("CrCr_creationClayDark");
 		creationClayBreakable = new BlockCreationClay(blockIDCreationClayBreakable).setHardness(1F).setUnlocalizedName("CrCr_creationClay");
-		creationBricks = new BlockCraftingCreation(blockIDCreationBricks, Material.rock).setUnlocalizedName("CrCr_creationClayBricks");
+		creationBricks = new BlockCraftingCreation(blockIDCreationBricks, Material.rock).setBlockUnbreakable().setUnlocalizedName("CrCr_creationClayBricks");
 		portal = new BlockPortal(blockIDPortal).setUnlocalizedName("CrCr_portal");
 		kiln = new BlockKiln(blockIDKiln).setLightValue(1F).setUnlocalizedName("CrCr_kiln");
 		altar = new BlockAltar(blockIDAltar).setUnlocalizedName("CrCr_altar");

@@ -30,7 +30,7 @@ public final class ModItems {
 		creationClayHelmet = new ItemCreationArmor(itemIDCreationClayHelmet, 0).setUnlocalizedName("CrCr_creationClayHelmet");
 		creationClayChestplate = new ItemCreationArmor(itemIDCreationClayChestplate, 1).setUnlocalizedName("CrCr_creationClayChestplate");
 		creationClayLeggings = new ItemCreationArmor(itemIDCreationClayLeggings, 2).setUnlocalizedName("CrCr_creationClayLeggings");
-		creationClayBoots = new ItemCreationArmor(itemIDCreationClayBoots, 0).setUnlocalizedName("CrCr_creationClayBoots");
+		creationClayBoots = new ItemCreationArmor(itemIDCreationClayBoots, 3).setUnlocalizedName("CrCr_creationClayBoots");
 		creationClayApple = new ItemCreationApple(itemIDCreationClayApple).setUnlocalizedName("CrCr_creationClayApple");
 		creationClayBow = new ItemCreationClayBow(itemIDCreationClayBow).setUnlocalizedName("CrCr_creationClayBow");
 		creationClayArrow = new ItemCreationArrow(itemIDCreationClayArrow).setUnlocalizedName("CrCr_creationClayArrow");

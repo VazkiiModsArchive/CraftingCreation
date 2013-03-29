@@ -11,6 +11,7 @@ public class BlockAltar extends BlockCraftingCreation {
 
 	public BlockAltar(int id) {
 		super(id, Material.rock);
+		setBlockUnbreakable();
 	}
 	
 	@Override

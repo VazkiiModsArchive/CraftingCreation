@@ -18,7 +18,7 @@ public class ItemCreationArmor extends ItemArmor implements IMark, ILevelable {
 	public static final EnumArmorMaterial material = EnumHelper.addArmorMaterial("SACRED_CLAY", 64, new int[] { 2, 2, 2, 2}, 0);
 	
 	public ItemCreationArmor(int par1, int armorType) {
-		super(par1 - 256, material, armorType, armorType);
+		super(par1 - 256, material, 0, armorType);
 		setCreativeTab(ModCreativeTab.theTab);
 		setMaxDamage(48);
 	}
@@ -63,6 +63,6 @@ public class ItemCreationArmor extends ItemArmor implements IMark, ILevelable {
 	
 	@Override
 	public int getValue(ItemStack stack) {
-		return (int) ((((getMaxDamage() / 4) * Math.pow(2, getLevel(stack))) - ((stack.getMaxDamage() - stack.getItemDamage()) * (Math.pow(2, getLevel(stack)))) / 4));
+		return (int) ((((getMaxDamage() / 2) * Math.pow(2, getLevel(stack))) -  stack.getItemDamage() * (Math.pow(2, getLevel(stack)))));
 	}
 }

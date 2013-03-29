@@ -13,6 +13,8 @@ public class ItemCreationClayBow extends ItemCreationClay implements IMark, ILev
 		setMaxDamage(24);
 	}
 	
+	// TODO Proper Value, effect, damage and enchants
+	
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add("Value: " + getValue(par1ItemStack));

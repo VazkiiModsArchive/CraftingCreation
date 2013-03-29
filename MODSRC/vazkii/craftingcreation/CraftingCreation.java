@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import vazkii.craftingcreation.core.CommonProxy;
 import vazkii.craftingcreation.lib.ModConstants;
+import vazkii.craftingcreation.network.PacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -14,7 +15,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid = ModConstants.MOD_ID, name = ModConstants.MOD_NAME, version = ModConstants.VERSION)
-@NetworkMod(clientSideRequired = true, channels = { ModConstants.NETWORK_CHANNEL })
+@NetworkMod(clientSideRequired = true, channels = { ModConstants.NETWORK_CHANNEL }, packetHandler = PacketHandler.class)
 public final class CraftingCreation {
 
 	@Instance
