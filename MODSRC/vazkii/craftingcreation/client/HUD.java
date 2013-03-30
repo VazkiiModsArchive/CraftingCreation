@@ -32,7 +32,7 @@ public class HUD implements ITickHandler  {
 		ScaledResolution res = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
 		MovingObjectPosition blockLooking = mc.objectMouseOver;
 		
-		if(mc.thePlayer != null && mc.thePlayer.dimension == ConfigurationHandler.dimID && mc.currentScreen == null) {
+		if(mc.thePlayer != null && mc.thePlayer.dimension == ConfigurationHandler.dimID) {
 			if(GameHelper.isGameInProgress()) {
 				String time = "Time Remaining: " + GameHelper.getGameTimeString();
 				mc.fontRenderer.drawStringWithShadow(time, res.getScaledWidth() / 2 - mc.fontRenderer.getStringWidth(time) / 2, 6, (GameHelper.gameTime >= 1200 ? 0xFFD821 : 0xFF4444));

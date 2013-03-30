@@ -9,7 +9,7 @@ import vazkii.craftingcreation.block.ModBlocks;
 public class AreaTerrainBoulder extends AreaGenerator {
 
 	public AreaTerrainBoulder() {
-		super(5);
+		super(4);
 	}
 
 	public void generate(World world, int i, int k) {

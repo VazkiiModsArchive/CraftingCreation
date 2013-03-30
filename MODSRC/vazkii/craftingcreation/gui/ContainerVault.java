@@ -35,26 +35,6 @@ public class ContainerVault extends Container {
 	
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2) {
-        ItemStack itemstack = null;
-        Slot slot = (Slot) inventorySlots.get(par2);
-
-        if (slot != null && slot.getHasStack()) {
-            ItemStack itemstack1 = slot.getStack();
-            itemstack = itemstack1.copy();
-
-            if (par2 < 3 * 9) {
-                if (!mergeItemStack(itemstack1, 4 * 9, inventorySlots.size(), true))
-                    return null;
-            }
-            else if (!mergeItemStack(itemstack1, 0, 4 * 9, false))
-                return null;
-
-            if (itemstack1.stackSize == 0)
-                slot.putStack((ItemStack)null);
-            else slot.onSlotChanged();
-        }
-
-        return itemstack;
+		return null;
     }
-
 }

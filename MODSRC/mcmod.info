@@ -1,0 +1,17 @@
+[
+{
+  "modid": "CraftingCreation",
+  "name": "§oCrafting Creation",
+  "description": "A Minecraft Recretion of the Stealing Creation minigame from Runescape with some tweaks to feel more minecraftey. Made for Searge's Mod Jam.",
+  "version": "1.0",
+  "mcversion": "1.5+",
+  "logoFile": "",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Vazkii"],
+  "credits": " AtlanticCraft, Jagex Game Studio, Mataf, Mithion, MrGibbs, Searge",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

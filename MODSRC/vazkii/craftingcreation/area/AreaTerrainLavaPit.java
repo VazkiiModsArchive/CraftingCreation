@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public class AreaTerrainLavaPit extends AreaGenerator {
 
 	public AreaTerrainLavaPit() {
-		super(5);
+		super(3);
 	}
 
 	public void generate(World world, int i, int k) {
