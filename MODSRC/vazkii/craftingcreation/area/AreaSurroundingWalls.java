@@ -1,8 +1,8 @@
 package vazkii.craftingcreation.area;
 
+import net.minecraft.world.World;
 import vazkii.craftingcreation.block.ModBlocks;
 import vazkii.craftingcreation.helper.GameHelper;
-import net.minecraft.world.World;
 
 public class AreaSurroundingWalls extends AreaGenerator {
 

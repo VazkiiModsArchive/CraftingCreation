@@ -1,12 +1,8 @@
 package vazkii.craftingcreation.handler;
 
 import java.util.EnumSet;
-import java.util.logging.Level;
 
-import vazkii.craftingcreation.CraftingCreation;
 import vazkii.craftingcreation.helper.GameHelper;
-
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 

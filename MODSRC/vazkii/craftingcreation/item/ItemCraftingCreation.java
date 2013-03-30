@@ -1,8 +1,8 @@
 package vazkii.craftingcreation.item;
 
-import vazkii.craftingcreation.gui.ModCreativeTab;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
+import vazkii.craftingcreation.gui.ModCreativeTab;
 
 public class ItemCraftingCreation extends Item {
 

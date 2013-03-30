@@ -1,17 +1,12 @@
 package vazkii.craftingcreation.helper;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
-
-import cpw.mods.fml.common.network.PacketDispatcher;
 
 import net.minecraft.network.packet.Packet3Chat;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import vazkii.craftingcreation.CraftingCreation;
 import vazkii.craftingcreation.area.AreaAltar;
 import vazkii.craftingcreation.area.AreaBlueBase;
@@ -26,8 +21,8 @@ import vazkii.craftingcreation.area.AreaTerrainBoulder;
 import vazkii.craftingcreation.area.AreaTerrainLavaPit;
 import vazkii.craftingcreation.area.AreaTerrainPond;
 import vazkii.craftingcreation.area.AreaTerrainTower;
-import vazkii.craftingcreation.block.ModBlocks;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
+import cpw.mods.fml.common.network.PacketDispatcher;
 
 public final class MapGenerator {
 	

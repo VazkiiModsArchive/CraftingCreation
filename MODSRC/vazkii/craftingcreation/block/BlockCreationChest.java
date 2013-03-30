@@ -1,15 +1,15 @@
 package vazkii.craftingcreation.block;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import vazkii.craftingcreation.CraftingCreation;
-import vazkii.craftingcreation.gui.ModCreativeTab;
-import vazkii.craftingcreation.helper.GameHelper;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import vazkii.craftingcreation.CraftingCreation;
+import vazkii.craftingcreation.gui.ModCreativeTab;
+import vazkii.craftingcreation.helper.GameHelper;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockCreationChest extends BlockContainer {
 

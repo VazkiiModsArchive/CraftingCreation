@@ -1,15 +1,18 @@
 package vazkii.craftingcreation.block;
 
-import static vazkii.craftingcreation.handler.ConfigurationHandler.*;
-
-import java.util.Random;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDAltar;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDBeacon;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDCreationBricks;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDCreationChest;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDCreationClay;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDCreationClayBreakable;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDInvisibleWall;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDKiln;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDPortal;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.blockIDSmokeyBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.world.World;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public final class ModBlocks {
 

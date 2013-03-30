@@ -1,17 +1,15 @@
 package vazkii.craftingcreation.core;
 
-import cpw.mods.fml.common.network.PacketDispatcher;
-import cpw.mods.fml.common.network.Player;
-import vazkii.craftingcreation.helper.GameHelper;
-import vazkii.craftingcreation.helper.MapGenerator;
-import vazkii.craftingcreation.network.PacketHandler;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChunkCoordinates;
+import vazkii.craftingcreation.helper.GameHelper;
+import vazkii.craftingcreation.network.PacketHandler;
+import cpw.mods.fml.common.network.PacketDispatcher;
+import cpw.mods.fml.common.network.Player;
 
 public class CommandGameEnd extends CommandBase {
 

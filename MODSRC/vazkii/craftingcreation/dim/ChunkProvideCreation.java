@@ -1,24 +1,20 @@
 package vazkii.craftingcreation.dim;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-import org.bouncycastle.util.Arrays;
-
-import vazkii.craftingcreation.block.ModBlocks;
-import vazkii.craftingcreation.handler.ConfigurationHandler;
-import vazkii.craftingcreation.helper.MapGenerator;
 
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
-import net.minecraft.world.gen.structure.MapGenStructure;
+
+import org.bouncycastle.util.Arrays;
+
+import vazkii.craftingcreation.block.ModBlocks;
+import vazkii.craftingcreation.handler.ConfigurationHandler;
 
 public class ChunkProvideCreation implements IChunkProvider {
 

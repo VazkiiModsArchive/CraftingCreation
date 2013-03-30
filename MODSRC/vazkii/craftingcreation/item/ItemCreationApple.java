@@ -2,13 +2,13 @@ package vazkii.craftingcreation.item;
 
 import java.util.List;
 
-import vazkii.craftingcreation.gui.ModCreativeTab;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import vazkii.craftingcreation.gui.ModCreativeTab;
 
 public class ItemCreationApple extends ItemFood implements IMark, ILevelable {
 

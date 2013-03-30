@@ -1,10 +1,10 @@
 package vazkii.craftingcreation.block;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import vazkii.craftingcreation.gui.ModCreativeTab;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockCraftingCreation extends Block {
 	

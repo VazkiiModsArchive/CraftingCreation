@@ -2,8 +2,6 @@ package vazkii.craftingcreation.block;
 
 import java.util.List;
 
-import vazkii.craftingcreation.helper.GameHelper;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
@@ -17,6 +15,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
+import vazkii.craftingcreation.helper.GameHelper;
 
 public class BlockPortal extends BlockCraftingCreation implements IHUD {
 

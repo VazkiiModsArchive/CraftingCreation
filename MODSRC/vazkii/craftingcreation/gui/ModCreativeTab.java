@@ -1,10 +1,8 @@
 package vazkii.craftingcreation.gui;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraft.creativetab.CreativeTabs;
 import vazkii.craftingcreation.item.ModItems;
 import vazkii.craftingcreation.lib.ModConstants;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 
 public class ModCreativeTab extends CreativeTabs {
 

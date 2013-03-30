@@ -6,13 +6,12 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import vazkii.craftingcreation.CraftingCreation;
-import vazkii.craftingcreation.gui.ContainerKiln;
-import vazkii.craftingcreation.lib.ModConstants;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet250CustomPayload;
+import vazkii.craftingcreation.CraftingCreation;
+import vazkii.craftingcreation.gui.ContainerKiln;
+import vazkii.craftingcreation.lib.ModConstants;
 import cpw.mods.fml.common.network.IPacketHandler;
 import cpw.mods.fml.common.network.Player;
 

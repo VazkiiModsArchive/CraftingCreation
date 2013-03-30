@@ -3,13 +3,10 @@
 */
 
 package vazkii.craftingcreation.area;
-import java.util.Random;
-
-import vazkii.craftingcreation.block.ModBlocks;
-import vazkii.craftingcreation.helper.GameHelper;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import vazkii.craftingcreation.block.ModBlocks;
+import vazkii.craftingcreation.helper.GameHelper;
 
 public class AreaBlueBase extends AreaGenerator {
 	

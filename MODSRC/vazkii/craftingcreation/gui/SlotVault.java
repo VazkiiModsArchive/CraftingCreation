@@ -1,9 +1,9 @@
 package vazkii.craftingcreation.gui;
 
-import vazkii.craftingcreation.item.IMark;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import vazkii.craftingcreation.item.IMark;
 
 public class SlotVault extends Slot {
 

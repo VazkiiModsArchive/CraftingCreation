@@ -8,9 +8,7 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
 import vazkii.craftingcreation.helper.GameHelper;
-import vazkii.craftingcreation.item.ILevelable;
 import vazkii.craftingcreation.network.PacketHandler;
-
 import cpw.mods.fml.common.network.PacketDispatcher;
 
 public class GuiKiln extends GuiContainer {

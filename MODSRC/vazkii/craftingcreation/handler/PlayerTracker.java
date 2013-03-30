@@ -1,9 +1,7 @@
 package vazkii.craftingcreation.handler;
 
-import vazkii.craftingcreation.helper.GameHelper;
-import vazkii.craftingcreation.helper.MapGenerator;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
+import vazkii.craftingcreation.helper.GameHelper;
 import cpw.mods.fml.common.IPlayerTracker;
 
 public class PlayerTracker implements IPlayerTracker {

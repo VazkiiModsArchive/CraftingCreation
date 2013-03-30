@@ -3,9 +3,8 @@
 */
 
 package vazkii.craftingcreation.area;
-import vazkii.craftingcreation.block.ModBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import vazkii.craftingcreation.block.ModBlocks;
 
 public class AreaSacredKiln extends AreaGenerator {
 

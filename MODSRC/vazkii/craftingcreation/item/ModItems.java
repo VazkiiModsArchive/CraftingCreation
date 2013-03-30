@@ -1,9 +1,20 @@
 package vazkii.craftingcreation.item;
 
-import static vazkii.craftingcreation.handler.ConfigurationHandler.*;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClay;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayApple;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayArrow;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayAxe;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayBoots;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayBow;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayChestplate;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayHelmet;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayLeggings;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayPick;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClayShovel;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationClaySword;
+import static vazkii.craftingcreation.handler.ConfigurationHandler.itemIDCreationStar;
 import net.minecraft.item.Item;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public final class ModItems {
 	

@@ -3,12 +3,9 @@
 */
 
 package vazkii.craftingcreation.area;
-import java.util.Random;
-
+import net.minecraft.world.World;
 import vazkii.craftingcreation.block.BlockCreationClay;
 import vazkii.craftingcreation.block.ModBlocks;
-
-import net.minecraft.world.World;
 
 public class AreaClayPit extends AreaGenerator {
 

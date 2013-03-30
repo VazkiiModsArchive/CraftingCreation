@@ -2,9 +2,6 @@ package vazkii.craftingcreation.item;
 
 import java.util.List;
 
-import vazkii.craftingcreation.block.BlockCreationClay;
-import vazkii.craftingcreation.block.ModBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -13,6 +10,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import vazkii.craftingcreation.block.BlockCreationClay;
 
 public class ItemCreationTool extends ItemCraftingCreation implements ILevelable, IMark {
 

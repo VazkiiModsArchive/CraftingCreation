@@ -1,11 +1,10 @@
 package vazkii.craftingcreation.dim;
 
-import vazkii.craftingcreation.helper.GameHelper;
 import net.minecraft.block.Block;
-import net.minecraft.client.multiplayer.ChunkProviderClient;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
+import vazkii.craftingcreation.helper.GameHelper;
 
 public class WorldProviderCreation extends WorldProvider {
 
