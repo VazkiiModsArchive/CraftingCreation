@@ -2,12 +2,18 @@ package vazkii.craftingcreation.block;
 
 import java.util.List;
 
+import vazkii.craftingcreation.helper.GameHelper;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class BlockPortal extends BlockCraftingCreation {
 
@@ -17,6 +23,21 @@ public class BlockPortal extends BlockCraftingCreation {
 	public BlockPortal(int id) {
 		super(id, Material.glass);
 		setBlockUnbreakable();
+	}
+	
+	@Override
+	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7,	float par8, float par9) {
+		if(!par1World.isRemote && par5EntityPlayer instanceof EntityPlayerMP) {
+			EntityPlayerMP playermp = (EntityPlayerMP)par5EntityPlayer;
+			int meta = par1World.getBlockMetadata(par2, par3, par4);
+			if(!GameHelper.isGameInProgress() || GameHelper.isPlayerInTeam(meta == 0, par5EntityPlayer.username)) {
+				ForgeDirection direction = ForgeDirection.getOrientation(par6).getOpposite();
+				int posX = par2 + direction.offsetX * 2;
+				int posZ = par4 + direction.offsetZ * 2;
+				playermp.playerNetServerHandler.setPlayerLocation(posX, playermp.posY, posZ, playermp.rotationYaw, playermp.rotationPitch);
+			} else par5EntityPlayer.addChatMessage("That's not your team's base!!");
+		}
+		return true;
 	}
 	
 	@Override

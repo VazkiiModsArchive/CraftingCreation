@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 
+import cpw.mods.fml.common.network.PacketDispatcher;
+
+import net.minecraft.network.packet.Packet3Chat;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
@@ -24,6 +27,7 @@ import vazkii.craftingcreation.area.AreaTerrainLavaPit;
 import vazkii.craftingcreation.area.AreaTerrainPond;
 import vazkii.craftingcreation.area.AreaTerrainTower;
 import vazkii.craftingcreation.block.ModBlocks;
+import vazkii.craftingcreation.handler.ConfigurationHandler;
 
 public final class MapGenerator {
 	
@@ -86,6 +90,9 @@ public final class MapGenerator {
 		mapGenerated = true;
 		lastMapXRoot = xRoot;
 		lastMapZRoot = zRoot;
+		
+		Packet3Chat packet = new Packet3Chat("A new map has been generated at " + xRoot + ", 10, "  + zRoot);
+		PacketDispatcher.sendPacketToAllInDimension(packet, ConfigurationHandler.dimID);
 	}
 	
 	public static  void generateAt(World world, int x, int z, char c, int xRoot, int zRoot) {

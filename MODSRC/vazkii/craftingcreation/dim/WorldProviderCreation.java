@@ -52,7 +52,7 @@ public class WorldProviderCreation extends WorldProvider {
 	
 	@Override
     public ChunkCoordinates getEntrancePortalLocation() {
-        return new ChunkCoordinates(0, 0, 0);
+        return new ChunkCoordinates(1000, 130, 1000);
     }
 	
 	@Override

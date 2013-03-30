@@ -38,7 +38,10 @@ public class HUD implements ITickHandler  {
 		
 			if(GameHelper.isGameInProgress()) {
 				String time = "Time Remaining: " + GameHelper.getGameTimeString();
-				mc.fontRenderer.drawStringWithShadow(time, res.getScaledWidth() / 2 - mc.fontRenderer.getStringWidth(bounty) / 2, 3, (GameHelper.gameTime >= 1200 ? 0xFFD821 : 0xFF2B21));
+				mc.fontRenderer.drawStringWithShadow(time, res.getScaledWidth() / 2 - mc.fontRenderer.getStringWidth(bounty) / 2, 6, (GameHelper.gameTime >= 1200 ? 0xFFD821 : 0xFF4444));
+			
+				String score = "Score: " + (GameHelper.isInRedTeam ? GameHelper.redTeamScore : GameHelper.blueTeamScore);
+				mc.fontRenderer.drawStringWithShadow(score, res.getScaledWidth() / 2 - mc.fontRenderer.getStringWidth(score) / 2, 16, (GameHelper.isInRedTeam ?  0xFF4444 : 0x4444FF));
 			}
 			
 			RenderItem itemRender = new RenderItem();
@@ -49,7 +52,7 @@ public class HUD implements ITickHandler  {
 				RenderHelper.enableStandardItemLighting();
 				itemRender.renderItemIntoGUI(mc.fontRenderer, mc.renderEngine, stack, 3, start + 27 * i);
 				RenderHelper.disableStandardItemLighting();
-				mc.fontRenderer.drawStringWithShadow("Level: " + (i + 1), 19, start + 27 * i, 0xFFFFFF);
+				mc.fontRenderer.drawStringWithShadow("Level " + (i + 1), 19, start + 27 * i, 0xFFFFFF);
 				mc.fontRenderer.drawStringWithShadow("Held: " + GameHelper.getClay(mc.thePlayer, i), 19, start + 27 * i + 11, 0xFFFFFF);
 
 			}

@@ -11,7 +11,7 @@ public class CommandGenerate extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "generate";
+		return "generatemap";
 	}
 
 	@Override

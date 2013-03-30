@@ -16,14 +16,11 @@ public class GameCountdownHandler implements ITickHandler {
 	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
 		if(GameHelper.isGameInProgress())
 			GameHelper.gameTime--;
-		
-		if(GameHelper.gameTime == 0 && type.equals(EnumSet.of(TickType.SERVER)))
-			GameHelper.endGame();
 	}
 
 	@Override
 	public EnumSet<TickType> ticks() {
-		return EnumSet.of(TickType.CLIENT, TickType.SERVER);
+		return EnumSet.of(TickType.CLIENT);
 	}
 
 	@Override

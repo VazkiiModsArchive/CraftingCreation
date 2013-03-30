@@ -20,7 +20,7 @@ public class CommandGameStart extends CommandBase {
 		String timeStr = astring[0];
 		int time = Integer.parseInt(timeStr);
 		if(!MapGenerator.mapGenerated) {
-			icommandsender.sendChatToPlayer("Can't start the game! Reset the map first using /generate <x> <y>");
+			icommandsender.sendChatToPlayer("Can't start the game! Reset the map first using /generatemap <x> <y>");
 			return;
 		}
 		

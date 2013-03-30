@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.network.packet.Packet3Chat;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChunkCoordinates;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
 import vazkii.craftingcreation.item.IMark;
 import vazkii.craftingcreation.item.ModItems;
@@ -47,10 +48,13 @@ public final class GameHelper {
 			playersInRedTeam.add(username);
 		else playersInBlueTeam.add(username);
 		
-		Packet3Chat packet = new Packet3Chat("You have been asigned the  " + (redTeam ? "Red" : "Blue") + " team. Have fun!");
-		EntityPlayerMP player = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(username);
-		if(player != null)
-			PacketDispatcher.sendPacketToPlayer(packet, (Player) player);
+		Packet3Chat packet = new Packet3Chat(username + " was asigned the " + (redTeam ? "Red" : "Blue") + " team!");
+		PacketDispatcher.sendPacketToAllPlayers(packet);
+	}
+	
+	public static void removePlayerFromTeams(String username) {
+		playersInRedTeam.remove(username);
+		playersInBlueTeam.remove(username);
 	}
 	
 	public static boolean isPlayerInTeam(boolean redTeam, String username) {
@@ -97,20 +101,28 @@ public final class GameHelper {
 
 		for(String s : playersInBlueTeam) {
 			EntityPlayerMP player = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(s);
-			if(player != null)
+			if(player != null) { 
 				PacketDispatcher.sendPacketToPlayer(blueTimePacket, (Player) player);
+				player.playerNetServerHandler.setPlayerLocation(MapGenerator.lastMapXRoot + 156, 10, MapGenerator.lastMapZRoot + 156, player.rotationYaw, player.rotationPitch);
+				player.setSpawnChunk(new ChunkCoordinates(MapGenerator.lastMapXRoot + 156, 10, MapGenerator.lastMapZRoot + 156), true);
+			}
 		}
 		
 		for(String s : playersInRedTeam) {
 			EntityPlayerMP player = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(s);
-			if(player != null)
+			if(player != null) {
 				PacketDispatcher.sendPacketToPlayer(redTimePacket, (Player) player);
+				player.playerNetServerHandler.setPlayerLocation(MapGenerator.lastMapXRoot + 9, 10, MapGenerator.lastMapZRoot + 9, player.rotationYaw, player.rotationPitch);
+				player.setSpawnChunk(new ChunkCoordinates(MapGenerator.lastMapXRoot + 9, 10, MapGenerator.lastMapZRoot + 9), true);
+			}
 		}
 		
 		PacketDispatcher.sendPacketToAllInDimension(packet, ConfigurationHandler.dimID);
 	}
 	
 	public static void endGame() {
+		System.out.println("gameOver");
+		
 		int winner = 0;
 		if(redTeamScore > blueTeamScore)
 			winner = 1;

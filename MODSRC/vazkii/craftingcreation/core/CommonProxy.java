@@ -10,10 +10,12 @@ import vazkii.craftingcreation.handler.ConfigurationHandler;
 import vazkii.craftingcreation.handler.GameCountdownHandler;
 import vazkii.craftingcreation.handler.GuiHandler;
 import vazkii.craftingcreation.handler.ItemNoSmuggleHandler;
+import vazkii.craftingcreation.handler.PlayerTracker;
 import vazkii.craftingcreation.item.ModItems;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
@@ -37,6 +39,8 @@ public class CommonProxy {
 		MinecraftForge.EVENT_BUS.register(new ItemNoSmuggleHandler());
 		
 		NetworkRegistry.instance().registerGuiHandler(CraftingCreation.instance, new GuiHandler());
+		
+		GameRegistry.registerPlayerTracker(new PlayerTracker());
 		
 		initClient();
 	}

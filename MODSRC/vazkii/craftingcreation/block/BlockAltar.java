@@ -16,8 +16,19 @@ public class BlockAltar extends BlockCraftingCreation {
 	
 	@Override
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
-		if(par5EntityPlayer.getHealth() < 12)
+		boolean didSomething = false;
+		
+		if(par5EntityPlayer.getHealth() < 12) {
 			par5EntityPlayer.heal(12 - par5EntityPlayer.getHealth());
+			didSomething = true;
+		}
+		if(par5EntityPlayer.getFoodStats().getFoodLevel() < 12) {
+			par5EntityPlayer.getFoodStats().addStats(12 - par5EntityPlayer.getFoodStats().getFoodLevel(), 0F);
+			didSomething = true;
+		}
+		
+		if(!didSomething && !par1World.isRemote)
+			par5EntityPlayer.addChatMessage("The altar can not further heal you. Come back when you're more wounded.");
 
 		return true;
 	}
