@@ -58,7 +58,7 @@ public class AreaSacredKiln extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 2, j + 5, k + 2, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 2, j + 5, k + 4, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 2, j + 6, k + 2, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 2, j + 6, k + 3, ModBlocks.smokeyBlock.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 2, j + 7, k + 3, ModBlocks.smokeyBlock.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 2, j + 6, k + 4, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 2, j + 7, k + 2, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 2, j + 7, k + 4, ModBlocks.creationBricks.blockID, 0, 2);
@@ -83,9 +83,9 @@ public class AreaSacredKiln extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 3, j + 5, k + 3, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 3, j + 5, k + 5, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 3, j + 6, k + 1, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 3, j + 6, k + 2, ModBlocks.smokeyBlock.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 3, j + 7, k + 2, ModBlocks.smokeyBlock.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 3, j + 6, k + 3, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 3, j + 6, k + 4, ModBlocks.smokeyBlock.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 3, j + 7, k + 4, ModBlocks.smokeyBlock.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 3, j + 6, k + 5, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 3, j + 7, k + 1, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 3, j + 7, k + 3, ModBlocks.creationBricks.blockID, 0, 2);
@@ -120,7 +120,7 @@ public class AreaSacredKiln extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 4, j + 5, k + 2, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 5, k + 4, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 6, k + 2, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 4, j + 6, k + 3, ModBlocks.smokeyBlock.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 4, j + 7, k + 3, ModBlocks.smokeyBlock.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 6, k + 4, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 7, k + 2, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 7, k + 4, ModBlocks.creationBricks.blockID, 0, 2);

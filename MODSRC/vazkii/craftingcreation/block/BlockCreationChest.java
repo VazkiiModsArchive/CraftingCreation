@@ -1,12 +1,43 @@
 package vazkii.craftingcreation.block;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import vazkii.craftingcreation.CraftingCreation;
+import vazkii.craftingcreation.gui.ModCreativeTab;
+import vazkii.craftingcreation.helper.GameHelper;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
-public class BlockCreationChest extends BlockCraftingCreation {
+public class BlockCreationChest extends BlockContainer {
 
 	public BlockCreationChest(int id) {
 		super(id, Material.rock);
 		setBlockUnbreakable();
+		setCreativeTab(ModCreativeTab.theTab);
+		GameRegistry.registerBlock(this);
+	}
+	
+	@Override
+    public void func_94332_a(IconRegister par1IconRegister){
+        field_94336_cN = par1IconRegister.func_94245_a("CraftingCreation:" + getUnlocalizedName().replaceAll("tile.CrCr_", ""));
+    }
+	
+	@Override
+	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+		if(GameHelper.isGameInProgress()) {
+			if(!par1World.isRemote)
+				par5EntityPlayer.openGui(CraftingCreation.instance, 1, par1World, par2, par3, par4);
+		} else if(par1World.isRemote)
+			par5EntityPlayer.addChatMessage("The Vault can not be accessed while there isn't a game in progress for security measures.");
+		return true;
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World world) {
+		return new TileEntityVault();
 	}
 
 }

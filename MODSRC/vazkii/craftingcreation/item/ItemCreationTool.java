@@ -22,6 +22,7 @@ public class ItemCreationTool extends ItemCraftingCreation implements ILevelable
 		super(par1);
 		this.toolType = par2;
 		setMaxDamage(16);
+		setFull3D();
 	}
 	
 	@Override

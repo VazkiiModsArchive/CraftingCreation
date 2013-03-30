@@ -28,8 +28,8 @@ public final class GameHelper {
 	public static final int MAP_SIZE = 23 * 7;
 	public static final int MAP_HEIGHT = 16;
 	
-	static Set<String> playersInBlueTeam = new TreeSet();
-	static Set<String> playersInRedTeam = new TreeSet();
+	public static Set<String> playersInBlueTeam = new TreeSet();
+	public static Set<String> playersInRedTeam = new TreeSet();
 	
 	@SideOnly(Side.CLIENT)
 	public static boolean isInRedTeam;
@@ -103,8 +103,11 @@ public final class GameHelper {
 			EntityPlayerMP player = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(s);
 			if(player != null) { 
 				PacketDispatcher.sendPacketToPlayer(blueTimePacket, (Player) player);
-				player.playerNetServerHandler.setPlayerLocation(MapGenerator.lastMapXRoot + 156, 10, MapGenerator.lastMapZRoot + 156, player.rotationYaw, player.rotationPitch);
-				player.setSpawnChunk(new ChunkCoordinates(MapGenerator.lastMapXRoot + 156, 10, MapGenerator.lastMapZRoot + 156), true);
+				player.playerNetServerHandler.setPlayerLocation(MapGenerator.lastMapXRoot + 156, 12, MapGenerator.lastMapZRoot + 156, player.rotationYaw, player.rotationPitch);
+				player.setSpawnChunk(new ChunkCoordinates(MapGenerator.lastMapXRoot + 156, 11, MapGenerator.lastMapZRoot + 156), true);
+				player.inventory.clearInventory(-1, -1);
+				player.heal(20);
+				player.getFoodStats().addStats(20, (1F - player.getFoodStats().getSaturationLevel()));
 			}
 		}
 		
@@ -112,8 +115,11 @@ public final class GameHelper {
 			EntityPlayerMP player = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(s);
 			if(player != null) {
 				PacketDispatcher.sendPacketToPlayer(redTimePacket, (Player) player);
-				player.playerNetServerHandler.setPlayerLocation(MapGenerator.lastMapXRoot + 9, 10, MapGenerator.lastMapZRoot + 9, player.rotationYaw, player.rotationPitch);
-				player.setSpawnChunk(new ChunkCoordinates(MapGenerator.lastMapXRoot + 9, 10, MapGenerator.lastMapZRoot + 9), true);
+				player.playerNetServerHandler.setPlayerLocation(MapGenerator.lastMapXRoot + 9, 12, MapGenerator.lastMapZRoot + 9, player.rotationYaw, player.rotationPitch);
+				player.setSpawnChunk(new ChunkCoordinates(MapGenerator.lastMapXRoot + 9, 11, MapGenerator.lastMapZRoot + 9), true);
+				player.inventory.clearInventory(-1, -1);
+				player.heal(20);
+				player.getFoodStats().addStats(20, (1F - player.getFoodStats().getSaturationLevel()));
 			}
 		}
 		
@@ -121,7 +127,10 @@ public final class GameHelper {
 	}
 	
 	public static void endGame() {
-		System.out.println("gameOver");
+		MinecraftServer server = MinecraftServer.getServer();
+		
+		if(server == null)
+			return; // Client!
 		
 		int winner = 0;
 		if(redTeamScore > blueTeamScore)

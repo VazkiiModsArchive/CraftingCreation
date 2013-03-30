@@ -14,6 +14,7 @@ public class ItemCreationSword extends ItemCraftingCreation implements IMark, IL
 	public ItemCreationSword(int par1) {
 		super(par1);
 		setMaxDamage(20);
+		setFull3D();
 	}
 	
 	@Override
@@ -52,6 +53,11 @@ public class ItemCreationSword extends ItemCraftingCreation implements IMark, IL
 	@Override
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return false;
+	}
+	
+	@Override
+	public boolean shouldRotateAroundWhenRendering() {
+		return true;
 	}
 	
 	@Override

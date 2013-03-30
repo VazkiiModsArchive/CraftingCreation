@@ -5,17 +5,20 @@ import java.util.List;
 import vazkii.craftingcreation.helper.GameHelper;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 
-public class BlockPortal extends BlockCraftingCreation {
+public class BlockPortal extends BlockCraftingCreation implements IHUD {
 
 	public static Icon redIcon;
 	public static Icon blueIcon;
@@ -32,8 +35,8 @@ public class BlockPortal extends BlockCraftingCreation {
 			int meta = par1World.getBlockMetadata(par2, par3, par4);
 			if(!GameHelper.isGameInProgress() || GameHelper.isPlayerInTeam(meta == 0, par5EntityPlayer.username)) {
 				ForgeDirection direction = ForgeDirection.getOrientation(par6).getOpposite();
-				int posX = par2 + direction.offsetX * 2;
-				int posZ = par4 + direction.offsetZ * 2;
+				double posX = par2 + direction.offsetX * 2 + 0.5;
+				double posZ = par4 + direction.offsetZ * 2 + 0.5;
 				playermp.playerNetServerHandler.setPlayerLocation(posX, playermp.posY, posZ, playermp.rotationYaw, playermp.rotationPitch);
 			} else par5EntityPlayer.addChatMessage("That's not your team's base!!");
 		}
@@ -71,4 +74,11 @@ public class BlockPortal extends BlockCraftingCreation {
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
         return super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, 1 - par5);
     }
+
+	@Override
+	public void drawHUD(Minecraft mc, ScaledResolution resolution, int meta, TileEntity tile) {
+		boolean canTraverse = !GameHelper.isGameInProgress() || (meta == (GameHelper.isInRedTeam ? 0 : 1));
+		String str = canTraverse ? "[RMB: Traverse]" : "[LOCKED]";
+		mc.fontRenderer.drawStringWithShadow(str, resolution.getScaledWidth() / 2  - mc.fontRenderer.getStringWidth(str) / 2, resolution.getScaledHeight() / 2 + 8, 0xFFFFFF);
+	}
 }

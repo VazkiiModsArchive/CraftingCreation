@@ -1,9 +1,12 @@
 package vazkii.craftingcreation.handler;
 
 import java.util.EnumSet;
+import java.util.logging.Level;
 
+import vazkii.craftingcreation.CraftingCreation;
 import vazkii.craftingcreation.helper.GameHelper;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
@@ -13,14 +16,17 @@ public class GameCountdownHandler implements ITickHandler {
 	public void tickStart(EnumSet<TickType> type, Object... tickData) { }
 
 	@Override
-	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
+	public void tickEnd(EnumSet<TickType> type, Object... tickData) {		
 		if(GameHelper.isGameInProgress())
 			GameHelper.gameTime--;
+		
+		if(GameHelper.gameTime == 1)
+			GameHelper.endGame();
 	}
 
 	@Override
 	public EnumSet<TickType> ticks() {
-		return EnumSet.of(TickType.CLIENT);
+		return EnumSet.of(TickType.CLIENT, TickType.SERVER);
 	}
 
 	@Override

@@ -106,10 +106,10 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 0, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 1, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 8, ModBlocks.creationChest.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 9, ModBlocks.creationChest.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 10, ModBlocks.creationChest.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 11, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 8, ModBlocks.creationChest.blockID, 1, 2);
+		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 9, ModBlocks.creationChest.blockID, 1, 2);
+		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 10, ModBlocks.creationChest.blockID, 1, 2);
+		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 11, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 12, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 1, j + 1, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
@@ -156,7 +156,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 3, j + 5, k + 0, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 3, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 0, k + 0, ModBlocks.portal.blockID, 1, 2);
-		world.setBlockAndMetadataWithNotify(i + 4, j + 0, k + 12, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 4, j + 0, k + 12, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 1, k + 0, ModBlocks.portal.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
@@ -169,7 +169,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 4, j + 5, k + 0, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 4, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 0, k + 0, ModBlocks.portal.blockID, 1, 2);
-		world.setBlockAndMetadataWithNotify(i + 5, j + 0, k + 12, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 5, j + 0, k + 12, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 1, k + 0, ModBlocks.portal.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 5, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
@@ -184,7 +184,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 6, j + 0, k + 0, ModBlocks.portal.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 6, j + 0, k + 6, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 6, j + 0, k + 7, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 6, j + 0, k + 12, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 6, j + 0, k + 12, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 6, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 6, j + 1, k + 0, ModBlocks.portal.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 6, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
@@ -199,7 +199,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 7, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 7, j + 0, k + 6, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 7, j + 0, k + 7, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 7, j + 0, k + 12, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 7, j + 0, k + 12, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 7, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 7, j + 1, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 7, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
@@ -212,7 +212,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 7, j + 5, k + 0, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 7, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 8, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 8, j + 0, k + 12, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 8, j + 0, k + 12, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 8, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 8, j + 1, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 8, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
@@ -225,7 +225,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 8, j + 5, k + 0, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 8, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 9, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 9, j + 0, k + 12, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 9, j + 0, k + 12, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 9, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 9, j + 1, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 9, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
@@ -238,7 +238,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 9, j + 5, k + 0, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 9, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 10, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 10, j + 0, k + 12, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 10, j + 0, k + 12, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 10, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 10, j + 1, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 10, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
@@ -251,7 +251,7 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 10, j + 5, k + 0, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 10, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 11, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 11, j + 0, k + 12, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 11, j + 0, k + 12, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 11, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 11, j + 1, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 11, j + 1, k + 13, ModBlocks.creationBricks.blockID, 0, 2);
@@ -265,11 +265,11 @@ public class AreaBlueBase extends AreaGenerator {
 		world.setBlockAndMetadataWithNotify(i + 11, j + 5, k + 13, ModBlocks.invisibleWall.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 0, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 1, ModBlocks.creationBricks.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 2, ModBlocks.creationChest.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 3, ModBlocks.creationChest.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 4, ModBlocks.creationChest.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 5, ModBlocks.creationChest.blockID, 0, 2);
-		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 6, ModBlocks.creationChest.blockID, 0, 2);
+		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 2, ModBlocks.creationChest.blockID, 1, 2);
+		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 3, ModBlocks.creationChest.blockID, 1, 2);
+		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 4, ModBlocks.creationChest.blockID, 1, 2);
+		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 5, ModBlocks.creationChest.blockID, 1, 2);
+		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 6, ModBlocks.creationChest.blockID, 1, 2);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 10, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 12, ModBlocks.creationBricks.blockID, 0, 2);
 		world.setBlockAndMetadataWithNotify(i + 12, j + 0, k + 13, ModBlocks.creationBricks.blockID, 0, 2);

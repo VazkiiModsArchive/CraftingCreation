@@ -4,6 +4,7 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import vazkii.craftingcreation.CraftingCreation;
 import vazkii.craftingcreation.block.ModBlocks;
+import vazkii.craftingcreation.block.TileEntityVault;
 import vazkii.craftingcreation.dim.BiomeCreation;
 import vazkii.craftingcreation.dim.WorldProviderCreation;
 import vazkii.craftingcreation.handler.ConfigurationHandler;
@@ -33,6 +34,8 @@ public class CommonProxy {
 		
 		ModBlocks.nameBlocks();
 		ModItems.nameItems();
+		
+		GameRegistry.registerTileEntity(TileEntityVault.class, "CrCr_TileVault");
 		
 		initTickHandler();
 		

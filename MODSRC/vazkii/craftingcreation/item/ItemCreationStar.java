@@ -22,7 +22,7 @@ public class ItemCreationStar extends ItemCraftingCreation {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-		if(!par2World.isRemote && par3EntityPlayer instanceof EntityPlayerMP) {
+		if(!par2World.isRemote && par3EntityPlayer instanceof EntityPlayerMP && par3EntityPlayer.dimension != ConfigurationHandler.dimID) {
 			par3EntityPlayer.setPosition(1000, 130, 1000);
 			par3EntityPlayer.travelToDimension(ConfigurationHandler.dimID);
 			((EntityPlayerMP)par3EntityPlayer).playerNetServerHandler.setPlayerLocation(-12, 10, -12, par3EntityPlayer.rotationYaw, par3EntityPlayer.rotationPitch);

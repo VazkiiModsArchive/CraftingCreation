@@ -1,6 +1,7 @@
 package vazkii.craftingcreation.dim;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.bouncycastle.util.Arrays;
@@ -13,8 +14,11 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+import net.minecraft.world.gen.structure.MapGenStructure;
 
 public class ChunkProvideCreation implements IChunkProvider {
 
@@ -31,21 +35,30 @@ public class ChunkProvideCreation implements IChunkProvider {
 
 	@Override
 	public Chunk provideChunk(int i, int j) {
-		byte[] array = new byte[32768];
 		Chunk chunk = new Chunk(world, i, j);
-		generateChunk(chunk);
 		
-		Arrays.fill(array, (byte) ConfigurationHandler.biomeID);
-		chunk.setBiomeArray(array);
-		
-		return chunk;
-	}
-	
-	public void generateChunk(Chunk chunk) {
-		for(int x = 0; x < 16; x++)
-			for(int z = 0; z < 16; z++)
-				for(int y = 0; y < 7; y++)
-					chunk.setBlockIDWithMetadata(x, y, z, ModBlocks.creationClay.blockID, 0);
+        for (int k = 0; k < 7; ++k) {
+            int l = k >> 4;
+            ExtendedBlockStorage extendedblockstorage = chunk.getBlockStorageArray()[l];
+
+            if (extendedblockstorage == null) {
+                extendedblockstorage = new ExtendedBlockStorage(k, !world.provider.hasNoSky);
+                chunk.getBlockStorageArray()[l] = extendedblockstorage;
+            }
+
+            for (int i1 = 0; i1 < 16; ++i1)
+                for (int j1 = 0; j1 < 16; ++j1) {
+                    extendedblockstorage.setExtBlockID(i1, k & 15, j1, (k < 7 ? ModBlocks.creationClay.blockID : 0) & 255);
+                    extendedblockstorage.setExtBlockMetadata(i1, k & 15, j1, 0);
+                }
+        }
+
+        chunk.generateSkylightMap();
+        byte[] abyte = chunk.getBiomeArray();
+        Arrays.fill(abyte, (byte) ConfigurationHandler.biomeID);
+
+        chunk.generateSkylightMap();
+        return chunk;
 	}
 
 	@Override
@@ -90,7 +103,7 @@ public class ChunkProvideCreation implements IChunkProvider {
 
 	@Override
 	public int getLoadedChunkCount() {
-		return 20;
+		return 0;
 	}
 
 	@Override

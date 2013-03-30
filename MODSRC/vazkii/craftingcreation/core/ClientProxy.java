@@ -23,8 +23,10 @@ public class ClientProxy extends CommonProxy {
 		GameHelper.gameTime = time;
 		GameHelper.isInRedTeam = redTeam;
 		
-		GameHelper.redTeamScore = 0;
-		GameHelper.blueTeamScore = 1;
+		if(time > 10) { // Dirty for for /endgame
+			GameHelper.redTeamScore = 0;
+			GameHelper.blueTeamScore = 0;
+		}
 	}
 	
 	@Override

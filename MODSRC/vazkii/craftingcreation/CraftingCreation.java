@@ -2,6 +2,7 @@ package vazkii.craftingcreation;
 
 import java.util.logging.Logger;
 
+import vazkii.craftingcreation.core.CommandGameEnd;
 import vazkii.craftingcreation.core.CommandGameStart;
 import vazkii.craftingcreation.core.CommandGenerate;
 import vazkii.craftingcreation.core.CommonProxy;
@@ -46,6 +47,7 @@ public final class CraftingCreation {
 	@ServerStarting
 	public void serverStarting(FMLServerStartingEvent event) {
 		event.registerServerCommand(new CommandGameStart());
+		event.registerServerCommand(new CommandGameEnd());
 		event.registerServerCommand(new CommandGenerate());
 	}
 	

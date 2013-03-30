@@ -18,7 +18,11 @@ public class BlockKiln extends BlockSmokeyBlock {
 	
 	@Override
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
-		par5EntityPlayer.openGui(CraftingCreation.instance, 0, par1World, par2, par3, par4);
+		if(par5EntityPlayer.getCurrentEquippedItem() == null) {
+			if(!par1World.isRemote)
+				par5EntityPlayer.openGui(CraftingCreation.instance, 0, par1World, par2, par3, par4);
+		} else if(par1World.isRemote) 
+			par5EntityPlayer.addChatMessage("You can't access the kiln with an item in-hand.");
 		return true;
 	}
 

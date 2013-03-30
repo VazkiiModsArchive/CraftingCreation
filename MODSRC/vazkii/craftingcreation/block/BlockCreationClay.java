@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import vazkii.craftingcreation.helper.GameHelper;
 import vazkii.craftingcreation.item.ItemCreationTool;
 import vazkii.craftingcreation.item.ModItems;
 
@@ -90,7 +91,7 @@ public class BlockCreationClay extends BlockCraftingCreation implements IHUD {
 	
 	@Override
 	public float getBlockHardness(World par1World, int par2, int par3, int par4) {
-		return super.getBlockHardness(par1World, par2, par3, par4) * (par1World.getBlockMetadata(par2, par3, par4) + 1);
+		return GameHelper.isGameInProgress() ? (super.getBlockHardness(par1World, par2, par3, par4) * (getLevel(par1World.getBlockMetadata(par2, par3, par4)) + 1) * 2) : -1F; 
 	}
 
 	@Override

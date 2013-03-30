@@ -28,7 +28,7 @@ public class BlockSmokeyBlock extends BlockCraftingCreation {
 	
 	@Override
     public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random) {
-    	for (int i = 0; i < 6; ++i) {
+    	for (int i = 0; i < 12; ++i) {
     		float x = (float)par2 + par5Random.nextFloat();
     		float z = (float)par4 + par5Random.nextFloat();
     		float y = (float)(par3 + 1) - par5Random.nextFloat();

@@ -9,8 +9,8 @@ public class ItemCreationArrow extends ItemCraftingCreation implements IMark {
 
 	public ItemCreationArrow(int par1) {
 		super(par1);
+		setMaxStackSize(8);
 	}
-	
 	
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
@@ -24,7 +24,7 @@ public class ItemCreationArrow extends ItemCraftingCreation implements IMark {
 
 	@Override
 	public int getValue(ItemStack stack) {
-		return 1;
+		return stack.stackSize;
 	}
 
 }

@@ -6,7 +6,7 @@ import net.minecraftforge.common.Configuration;
 
 public class ConfigurationHandler {
 	
-	public static int blockIDCreationClay = 940,
+	public static int blockIDCreationClay = 240,
 					blockIDCreationClayBreakable = 941,
 					blockIDCreationBricks = 942,
 					blockIDPortal = 943,
@@ -44,7 +44,7 @@ public class ConfigurationHandler {
 		dimID = config.get(Configuration.CATEGORY_GENERAL, "dimensionID", dimID).getInt(dimID);
 		biomeID = config.get(Configuration.CATEGORY_GENERAL, "biomeID", biomeID).getInt(biomeID);
 		
-		blockIDCreationClay = loadBlock("creationClay", blockIDCreationClay);
+		blockIDCreationClay = loadTerrainBlock("creationClay", blockIDCreationClay);
 		blockIDCreationClayBreakable = loadBlock("creationClayBreakable", blockIDCreationClayBreakable);
 		blockIDCreationBricks = loadBlock("creationBricks", blockIDCreationBricks);
 		blockIDPortal = loadBlock("portal", blockIDPortal);
@@ -70,6 +70,9 @@ public class ConfigurationHandler {
 		config.save();
 	}
 
+	public static int loadTerrainBlock(String label, int defaultID) {
+		return config.getTerrainBlock(config.CATEGORY_BLOCK, label, defaultID, null).getInt();
+	}
 	
 	public static int loadBlock(String label, int defaultID) {
 		return config.getBlock(label, defaultID).getInt(defaultID);
