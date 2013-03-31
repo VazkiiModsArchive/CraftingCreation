@@ -24,7 +24,7 @@ public class SlotKiln extends Slot {
 		
 		ItemStack stack = getStack();
 		int cost = ContainerKiln.getItemCost(stack);
-		int held = GameHelper.getClay(par1EntityPlayer, ((ILevelable) stack.getItem()).getLevel(stack));
+		int held = GameHelper.getClay(par1EntityPlayer, stack.getItem().itemID == ModItems.creationClayArrow.itemID ? (stack.stackSize == 2 ? 0 : stack.stackSize == 4 ? 1 : 2) : (((ILevelable) stack.getItem()).getLevel(stack)));
 		
 		return held >= cost;
 	}
@@ -37,7 +37,7 @@ public class SlotKiln extends Slot {
 	@Override
 	public void onPickupFromSlot(EntityPlayer par1EntityPlayer, ItemStack par2ItemStack) {
 		int cost = ContainerKiln.getItemCost(par2ItemStack);
-		int level = ((ILevelable) par2ItemStack.getItem()).getLevel(par2ItemStack);
+		int level = par2ItemStack.getItem().itemID == ModItems.creationClayArrow.itemID ? (par2ItemStack.stackSize == 2 ? 0 : par2ItemStack.stackSize == 4 ? 1 : 2) : ((ILevelable) par2ItemStack.getItem()).getLevel(par2ItemStack);
 		InventoryPlayer inv = par1EntityPlayer.inventory;
 		
 		int found = 0;
