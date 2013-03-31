@@ -56,7 +56,7 @@ public class BlockAltar extends BlockCraftingCreation {
 	
 	@Override
 	public Icon getBlockTextureFromSideAndMetadata(int par1, int par2) {
-		return par1 == 0 || par1 == 1 ? ModBlocks.creationClay.getBlockTextureFromSide(0) : field_94336_cN;
+		return par1 == 0 || par1 == 1 ? ModBlocks.creationClay.getBlockTextureFromSide(0) : blockIcon;
 	}
 
 }

@@ -19,12 +19,12 @@ public class AreaSurroundingWalls extends AreaGenerator {
 	
 		for(int y = 0; y < GameHelper.MAP_HEIGHT; y++) {
 			for(int x = 1; x < GameHelper.MAP_SIZE + 2; x++) {
-				world.setBlockAndMetadataWithNotify(i + x, j + y, k, ModBlocks.invisibleWall.blockID, 0, 2);
-				world.setBlockAndMetadataWithNotify(i + x, j + y, k + (GameHelper.MAP_SIZE + 1), ModBlocks.invisibleWall.blockID, 0, 2);
+				world.setBlock(i + x, j + y, k, ModBlocks.invisibleWall.blockID, 0, 2);
+				world.setBlock(i + x, j + y, k + (GameHelper.MAP_SIZE + 1), ModBlocks.invisibleWall.blockID, 0, 2);
 			}
 			for(int z = 0; z < GameHelper.MAP_SIZE + 1; z++) {
-				world.setBlockAndMetadataWithNotify(i, j + y, k + z, ModBlocks.invisibleWall.blockID, 0, 2);
-				world.setBlockAndMetadataWithNotify(i + (GameHelper.MAP_SIZE + 1), j + y, k + z, ModBlocks.invisibleWall.blockID, 0, 2);
+				world.setBlock(i, j + y, k + z, ModBlocks.invisibleWall.blockID, 0, 2);
+				world.setBlock(i + (GameHelper.MAP_SIZE + 1), j + y, k + z, ModBlocks.invisibleWall.blockID, 0, 2);
 			}
 		}
 	}

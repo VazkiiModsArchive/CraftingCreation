@@ -75,7 +75,7 @@ public class GuiKiln extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        mc.renderEngine.func_98187_b("/mods/CraftingCreation/kilnGui.png");
+        mc.renderEngine.bindTexture("/mods/CraftingCreation/kilnGui.png");
         int k = (width - xSize) / 2;
         int l = (height - ySize) / 2;
         drawTexturedModalRect(k, l, 0, 0, xSize, ySize);

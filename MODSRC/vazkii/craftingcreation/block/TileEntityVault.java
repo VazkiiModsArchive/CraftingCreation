@@ -79,7 +79,7 @@ public class TileEntityVault extends TileEntity implements IInventory {
 	}
 
 	@Override
-	public boolean func_94042_c() {
+	public boolean isInvNameLocalized() {
 		return false;
 	}
 
@@ -131,7 +131,7 @@ public class TileEntityVault extends TileEntity implements IInventory {
 	public void closeChest() { }
 
 	@Override
-	public boolean func_94041_b(int i, ItemStack itemstack) {
+	public boolean isStackValidForSlot(int i, ItemStack itemstack) {
 		return false;
 	}
 	

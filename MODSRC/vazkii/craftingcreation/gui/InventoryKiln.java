@@ -39,11 +39,6 @@ public class InventoryKiln implements IInventory {
 	}
 
 	@Override
-	public boolean func_94042_c() {
-		return false;
-	}
-
-	@Override
 	public int getInventoryStackLimit() {
 		return 64;
 	}
@@ -67,10 +62,16 @@ public class InventoryKiln implements IInventory {
 	public void closeChest() {
 		// NO-OP
 	}
-
+	
 	@Override
-	public boolean func_94041_b(int i, ItemStack itemstack) {
+	public boolean isInvNameLocalized() {
 		return false;
 	}
+
+	@Override
+	public boolean isStackValidForSlot(int i, ItemStack itemstack) {
+		return false;
+	}
+
 
 }

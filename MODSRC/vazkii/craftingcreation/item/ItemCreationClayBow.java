@@ -75,12 +75,12 @@ public class ItemCreationClayBow extends ItemBow implements IMark, ILevelable {
 	Icon[] textures = new Icon[4];
 	
 	@Override
-    public void func_94581_a(IconRegister par1IconRegister) {
-        textures[0] = par1IconRegister.func_94245_a("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", ""));
+    public void updateIcons(IconRegister par1IconRegister) {
+        textures[0] = par1IconRegister.registerIcon("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", ""));
         iconIndex = textures[0];
-        textures[1] = par1IconRegister.func_94245_a("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", "") + "1");
-        textures[2] = par1IconRegister.func_94245_a("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", "") + "2");
-        textures[3] = par1IconRegister.func_94245_a("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", "") + "3");
+        textures[1] = par1IconRegister.registerIcon("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", "") + "1");
+        textures[2] = par1IconRegister.registerIcon("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", "") + "2");
+        textures[3] = par1IconRegister.registerIcon("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", "") + "3");
 	}
 	
 	@Override

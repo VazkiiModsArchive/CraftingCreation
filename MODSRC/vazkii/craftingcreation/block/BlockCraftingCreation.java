@@ -21,7 +21,7 @@ public class BlockCraftingCreation extends Block {
 	}
 	
 	@Override
-    public void func_94332_a(IconRegister par1IconRegister){
-        field_94336_cN = par1IconRegister.func_94245_a("CraftingCreation:" + getUnlocalizedName().replaceAll("tile.CrCr_", ""));
+    public void registerIcons(IconRegister par1IconRegister){
+        blockIcon = par1IconRegister.registerIcon("CraftingCreation:" + getUnlocalizedName().replaceAll("tile.CrCr_", ""));
     }
 }

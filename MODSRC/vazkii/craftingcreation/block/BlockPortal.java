@@ -54,9 +54,9 @@ public class BlockPortal extends BlockCraftingCreation implements IHUD {
 	}
 	
 	@Override
-    public void func_94332_a(IconRegister par1IconRegister){
-        redIcon = par1IconRegister.func_94245_a("CraftingCreation:" + "portalRed");
-        blueIcon = par1IconRegister.func_94245_a("CraftingCreation:" + "portalBlue");
+    public void registerIcons(IconRegister par1IconRegister){
+        redIcon = par1IconRegister.registerIcon("CraftingCreation:" + "portalRed");
+        blueIcon = par1IconRegister.registerIcon("CraftingCreation:" + "portalBlue");
     }	
 	
 	@Override

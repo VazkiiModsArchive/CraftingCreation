@@ -42,8 +42,8 @@ public class ItemCreationArmor extends ItemArmor implements IMark, ILevelable {
 	}
 	
 	@Override
-    public void func_94581_a(IconRegister par1IconRegister) {
-        iconIndex = par1IconRegister.func_94245_a("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", ""));
+    public void updateIcons(IconRegister par1IconRegister) {
+        iconIndex = par1IconRegister.registerIcon("CraftingCreation:" + getUnlocalizedName().replaceAll("item.CrCr_", ""));
     }
 
 	@Override

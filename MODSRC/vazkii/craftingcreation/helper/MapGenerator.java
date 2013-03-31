@@ -113,8 +113,7 @@ public final class MapGenerator {
 	public static void generateRandomAt(World world, int x, int z, int level, int xRoot, int zRoot) {
 		AreaGenerator.currentClayLevel = level;
 		
-		WeightedRandom random = new WeightedRandom();
-		AreaGenerator generator = (AreaGenerator) random.getRandomItem(world.rand, MAP_AREAS);
+		AreaGenerator generator = (AreaGenerator) WeightedRandom.getRandomItem(world.rand, MAP_AREAS);
 		generateAt(world, x, z, generator, xRoot, zRoot);
 	}
 	

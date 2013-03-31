@@ -14,8 +14,8 @@ public class BlockSmokeyBlock extends BlockCraftingCreation {
 	}
 	
 	@Override
-    public void func_94332_a(IconRegister par1IconRegister){
-        field_94336_cN = ModBlocks.creationBricks.getBlockTextureFromSide(0);
+    public void registerIcons(IconRegister par1IconRegister){
+        blockIcon = ModBlocks.creationBricks.getBlockTextureFromSide(0);
     }
 	
 	@Override
