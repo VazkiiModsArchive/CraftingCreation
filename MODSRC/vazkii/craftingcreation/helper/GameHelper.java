@@ -3,6 +3,7 @@ package vazkii.craftingcreation.helper;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -99,10 +100,17 @@ public final class GameHelper {
 		Packet250CustomPayload blueTimePacket = PacketHandler.generateGameStartPacket(GameHelper.gameTime, false);
 		Packet250CustomPayload redTimePacket = PacketHandler.generateGameStartPacket(GameHelper.gameTime, true);
 
+		String blueTeamPlayers = generatePlayerList(playersInBlueTeam);
+		String redTeamPlayers = generatePlayerList(playersInRedTeam);
+		
+		Packet3Chat blueTeamPlayersPackets = new Packet3Chat(blueTeamPlayers);
+		Packet3Chat redTeamPlayersPackets = new Packet3Chat(redTeamPlayers);
+		
 		for(String s : playersInBlueTeam) {
 			EntityPlayerMP player = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(s);
 			if(player != null) { 
 				PacketDispatcher.sendPacketToPlayer(blueTimePacket, (Player) player);
+				PacketDispatcher.sendPacketToPlayer(blueTeamPlayersPackets, (Player) player);
 				player.playerNetServerHandler.setPlayerLocation(MapGenerator.lastMapXRoot + 156, 12, MapGenerator.lastMapZRoot + 156, player.rotationYaw, player.rotationPitch);
 				player.setSpawnChunk(new ChunkCoordinates(MapGenerator.lastMapXRoot + 156, 11, MapGenerator.lastMapZRoot + 156), true);
 				player.inventory.clearInventory(-1, -1);
@@ -115,6 +123,7 @@ public final class GameHelper {
 			EntityPlayerMP player = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(s);
 			if(player != null) {
 				PacketDispatcher.sendPacketToPlayer(redTimePacket, (Player) player);
+				PacketDispatcher.sendPacketToPlayer(redTeamPlayersPackets, (Player) player);
 				player.playerNetServerHandler.setPlayerLocation(MapGenerator.lastMapXRoot + 9, 12, MapGenerator.lastMapZRoot + 9, player.rotationYaw, player.rotationPitch);
 				player.setSpawnChunk(new ChunkCoordinates(MapGenerator.lastMapXRoot + 9, 11, MapGenerator.lastMapZRoot + 9), true);
 				player.inventory.clearInventory(-1, -1);
@@ -124,6 +133,14 @@ public final class GameHelper {
 		}
 		
 		PacketDispatcher.sendPacketToAllInDimension(packet, ConfigurationHandler.dimID);
+	}
+	
+	public static String generatePlayerList(Set<String> players) {
+		String s = "Players in your team: ";
+		for(String p : players)
+			s = s.concat(p).concat(".");
+				
+		return s;
 	}
 	
 	public static void endGame() {

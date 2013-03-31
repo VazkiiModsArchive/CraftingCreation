@@ -6,6 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -29,6 +30,13 @@ public class ItemCreationSword extends ItemCraftingCreation implements IMark, IL
 		lvl2.addEnchantment(Enchantment.sharpness, 2);
 		par3List.add(lvl2);
 	}
+	
+	@Override
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving) {
+        par1ItemStack.damageItem(1, par3EntityLiving);
+        return true;
+    }
+
 
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
