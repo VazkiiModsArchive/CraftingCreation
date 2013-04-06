@@ -7,10 +7,7 @@ import cpw.mods.fml.common.IPlayerTracker;
 public class PlayerTracker implements IPlayerTracker {
 
 	@Override
-	public void onPlayerLogin(EntityPlayer player) {
-		if(!player.worldObj.isRemote && player.dimension == ConfigurationHandler.dimID)
-			GameHelper.asignTeamForPlayer(player.username);
-	}
+	public void onPlayerLogin(EntityPlayer player) { }
 
 	@Override
 	public void onPlayerLogout(EntityPlayer player) {

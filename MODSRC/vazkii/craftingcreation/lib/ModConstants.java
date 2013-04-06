@@ -4,7 +4,7 @@ public class ModConstants {
 
 	public static final String MOD_ID = "CraftingCreation",
 							MOD_NAME = "Crafting Creation",
-							VERSION = "1.0";
+							VERSION = "1.1";
 	
 	public static final String NETWORK_CHANNEL = "CraftCreation";
 	

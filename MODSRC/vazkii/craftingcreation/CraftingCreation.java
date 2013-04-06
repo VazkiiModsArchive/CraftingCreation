@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 import vazkii.craftingcreation.core.CommandGameEnd;
 import vazkii.craftingcreation.core.CommandGameStart;
 import vazkii.craftingcreation.core.CommandGenerate;
+import vazkii.craftingcreation.core.CommandJoin;
+import vazkii.craftingcreation.core.CommandListTeams;
 import vazkii.craftingcreation.core.CommonProxy;
 import vazkii.craftingcreation.lib.ModConstants;
 import vazkii.craftingcreation.network.PacketHandler;
@@ -23,7 +25,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 @NetworkMod(clientSideRequired = true, channels = { ModConstants.NETWORK_CHANNEL }, packetHandler = PacketHandler.class)
 public final class CraftingCreation {
 
-	@Instance
+	@Instance(ModConstants.MOD_ID)
 	public static CraftingCreation instance;
 	
 	public static Logger logger;
@@ -49,6 +51,10 @@ public final class CraftingCreation {
 		event.registerServerCommand(new CommandGameStart());
 		event.registerServerCommand(new CommandGameEnd());
 		event.registerServerCommand(new CommandGenerate());
+		event.registerServerCommand(new CommandJoin(true));
+		event.registerServerCommand(new CommandJoin(false));	
+		event.registerServerCommand(new CommandJoin(null));		
+		event.registerServerCommand(new CommandListTeams());		
+
 	}
-	
 }

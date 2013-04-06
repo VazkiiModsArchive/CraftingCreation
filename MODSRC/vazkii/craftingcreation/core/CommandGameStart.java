@@ -20,6 +20,8 @@ public class CommandGameStart extends CommandBase {
 		 if(GameHelper.isGameInProgress())
 			 throw new CommandException("There is already a game in progress!");
 		
+		if(GameHelper.playersInBlueTeam.isEmpty() && GameHelper.playersInRedTeam.isEmpty())
+			throw new CommandException("The Teams are Empty, use /joinred or /joinblue! /jointeam will asign you the team with less players.");
 		
 		String timeStr = astring[0];
 		int time = Integer.parseInt(timeStr);

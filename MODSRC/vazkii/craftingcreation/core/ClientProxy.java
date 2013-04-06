@@ -1,12 +1,21 @@
 package vazkii.craftingcreation.core;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
+import vazkii.craftingcreation.block.TileEntityBaseBeacon;
 import vazkii.craftingcreation.client.GameItemRender;
 import vazkii.craftingcreation.client.HUD;
+import vazkii.craftingcreation.client.HealthBarRenderer;
+import vazkii.craftingcreation.client.TileRenderBaseBeacon;
 import vazkii.craftingcreation.handler.GameCountdownHandler;
 import vazkii.craftingcreation.helper.GameHelper;
 import vazkii.craftingcreation.item.ModItems;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
@@ -23,7 +32,7 @@ public class ClientProxy extends CommonProxy {
 		GameHelper.gameTime = time;
 		GameHelper.isInRedTeam = redTeam;
 		
-		if(time > 10) { // Dirty for for /endgame
+		if(time > 10) { // Dirty trick for /endgame
 			GameHelper.redTeamScore = 0;
 			GameHelper.blueTeamScore = 0;
 		}
@@ -34,6 +43,15 @@ public class ClientProxy extends CommonProxy {
 		if(redTeam)
 			GameHelper.redTeamScore = score;
 		else GameHelper.blueTeamScore = score;
+	}
+	
+	@Override
+	public void recieveHealthPacket(int id, int health, boolean redTeam) {
+		Entity entity = ((WorldClient) Minecraft.getMinecraft().theWorld).getEntityByID(id);
+		if(entity != null && entity instanceof EntityPlayer) {
+			((EntityPlayer)entity).setEntityHealth(health);
+			GameHelper.addPlayerToTeam(redTeam, ((EntityPlayer)entity).username);
+		}
 	}
 	
 	@Override
@@ -51,5 +69,9 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(ModItems.creationClayChestplate.itemID, renderer);
 		MinecraftForgeClient.registerItemRenderer(ModItems.creationClayLeggings.itemID, renderer);
 		MinecraftForgeClient.registerItemRenderer(ModItems.creationClayBoots.itemID, renderer);
+		
+		MinecraftForge.EVENT_BUS.register(new HealthBarRenderer());
+
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBaseBeacon.class, new TileRenderBaseBeacon());
 	}	
 }

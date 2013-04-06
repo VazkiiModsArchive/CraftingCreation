@@ -9,6 +9,8 @@ import vazkii.craftingcreation.item.ILevelable;
 
 public class GameItemRender implements IItemRenderer {
 
+	RenderItem renderItem = new RenderItem();
+	
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
 		return type == ItemRenderType.INVENTORY;
@@ -22,7 +24,7 @@ public class GameItemRender implements IItemRenderer {
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		FontRenderer font = Minecraft.getMinecraft().fontRenderer;
-		new RenderItem().renderItemIntoGUI(font, Minecraft.getMinecraft().renderEngine, item, 0, 0);
+		renderItem.renderItemIntoGUI(font, Minecraft.getMinecraft().renderEngine, item, 0, 0);
 		
 		font.setUnicodeFlag(true);
 		ILevelable itemCC = (ILevelable) item.getItem();

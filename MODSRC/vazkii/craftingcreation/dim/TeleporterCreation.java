@@ -1,7 +1,6 @@
 package vazkii.craftingcreation.dim;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 

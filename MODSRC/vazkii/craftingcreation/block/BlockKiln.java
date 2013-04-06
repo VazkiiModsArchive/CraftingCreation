@@ -2,14 +2,26 @@ package vazkii.craftingcreation.block;
 
 import java.util.Random;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import vazkii.craftingcreation.CraftingCreation;
 
-public class BlockKiln extends BlockSmokeyBlock {
+public class BlockKiln extends BlockCraftingCreation {
 
+	Icon frontIcon;
+	
 	public BlockKiln(int id) {
-		super(id);
+		super(id, Material.rock);
+		setBlockUnbreakable();
+	}
+	
+	@Override
+    public void registerIcons(IconRegister par1IconRegister){
+        blockIcon = ModBlocks.creationBricks.getBlockTextureFromSide(0);
+        frontIcon = par1IconRegister.registerIcon("CraftingCreation:kilnFront");
 	}
 	
 	@Override
@@ -21,15 +33,37 @@ public class BlockKiln extends BlockSmokeyBlock {
 			par5EntityPlayer.addChatMessage("You can't access the kiln with an item in-hand.");
 		return true;
 	}
+	
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2) {
+        return par1 != par2 ? blockIcon : frontIcon;
+    }
 
-	@Override
     public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random) {
-		super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
-    	for (int i = 0; i < 20; ++i) {
-    		float x = (float)par2 + par5Random.nextFloat() * 1.4F - 0.2F;
-    		float z = (float)par4 + par5Random.nextFloat() * 1.4F - 0.2F;
-    		float y = (float)(par3 + 1) - par5Random.nextFloat();
-    		par1World.spawnParticle("flame", (double)x, (double)y, (double)z, (par5Random.nextFloat() - 0.5F) / 10, (par5Random.nextFloat() - 0.5F) / 10, (par5Random.nextFloat() - 0.5F) / 10);
-    	}
+        int l = par1World.getBlockMetadata(par2, par3, par4);
+
+        for(int i = 0; i < 3; i++) {
+            float f = (float)par2 + 0.5F;
+            float f1 = (float)par3 + 0.0F + par5Random.nextFloat() * 6.0F / 16.0F;
+            float f2 = (float)par4 + 0.5F;
+            float f3 = 0.52F;
+            float f4 = par5Random.nextFloat() * 0.6F - 0.3F;
+        	
+            if (l == 4) {
+                par1World.spawnParticle("smoke", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+                par1World.spawnParticle("flame", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+            }
+            else if (l == 5) {
+                par1World.spawnParticle("smoke", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+                par1World.spawnParticle("flame", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+            }
+            else if (l == 2) {
+                par1World.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
+                par1World.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
+            }
+            else if (l == 3) {
+                par1World.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
+                par1World.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
+            }
+        }
     }
 }

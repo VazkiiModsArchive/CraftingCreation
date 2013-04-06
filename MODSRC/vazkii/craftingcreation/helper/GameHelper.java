@@ -3,7 +3,6 @@ package vazkii.craftingcreation.helper;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -45,11 +44,15 @@ public final class GameHelper {
 	}
 	
 	public static void addPlayerToTeam(boolean redTeam, String username) {
-		if(redTeam)
+		if(redTeam) {
 			playersInRedTeam.add(username);
-		else playersInBlueTeam.add(username);
+			playersInBlueTeam.remove(username);
+		} else {
+			playersInBlueTeam.add(username);
+			playersInRedTeam.remove(username);
+		}
 		
-		Packet3Chat packet = new Packet3Chat(username + " was asigned the " + (redTeam ? "Red" : "Blue") + " team!");
+		Packet3Chat packet = new Packet3Chat(username + " was asigned the " + (redTeam ? "Red" : "Blue") + " team.");
 		PacketDispatcher.sendPacketToAllPlayers(packet);
 	}
 	
@@ -63,6 +66,10 @@ public final class GameHelper {
 			return playersInRedTeam.contains(username);
 		else return playersInBlueTeam.contains(username);
 	}
+	
+	public static boolean isPlayerInGame(String username) {
+		return isPlayerInTeam(true, username) || isPlayerInTeam(false, username);
+ 	}
 	
 	public static void clearTeams() {
 		playersInRedTeam.clear();
@@ -136,9 +143,12 @@ public final class GameHelper {
 	}
 	
 	public static String generatePlayerList(Set<String> players) {
-		String s = "Players in your team: ";
+		return generatePlayerList(players, "Players in your team: ");
+	}
+	
+	public static String generatePlayerList(Set<String> players, String s) {
 		for(String p : players)
-			s = s.concat(p).concat(".");
+			s = s.concat(p).concat(". ");
 				
 		return s;
 	}

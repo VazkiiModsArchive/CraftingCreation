@@ -20,7 +20,7 @@ public class WorldProviderCreation extends WorldProvider {
 	
 	@Override
     public float calculateCelestialAngle(long par1, float par3) {
-        return 0.0F;
+        return 0F;
     }
 	
 	@Override
@@ -30,7 +30,7 @@ public class WorldProviderCreation extends WorldProvider {
 	
 	@Override
     public boolean isSkyColored() {
-        return true;
+        return false;
     }
 	
 	@Override
@@ -63,6 +63,7 @@ public class WorldProviderCreation extends WorldProvider {
     public boolean doesXZShowFog(int par1, int par2) {
         return true;
     }
+	
 	
 	@Override
 	public int getActualHeight() {

@@ -28,8 +28,10 @@ public class BlockCreationChest extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 		if(GameHelper.isGameInProgress()) {
-			if(!par1World.isRemote)
+			if(!par1World.isRemote && GameHelper.isPlayerInGame(par5EntityPlayer.username))
 				par5EntityPlayer.openGui(CraftingCreation.instance, 1, par1World, par2, par3, par4);
+			else if(!par1World.isRemote)
+				par5EntityPlayer.addChatMessage("You are not playing!");
 		} else if(par1World.isRemote)
 			par5EntityPlayer.addChatMessage("The Vault can not be accessed while there isn't a game in progress for security measures.");
 		return true;
